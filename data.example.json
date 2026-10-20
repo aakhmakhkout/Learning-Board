@@ -1,0 +1,396 @@
+{
+  "meta": {
+    "name": "Noumaan",
+    "title": "Backend Journey",
+    "tagline": "Finish the Next.js essentials, then Node, Express and MongoDB, then ship a full-stack project. One page, every date.",
+    "startDate": "2026-10-20",
+    "hoursPerDay": 5.5
+  },
+  "phases": [
+    {
+      "name": "Next.js essentials only",
+      "color": "#d9432a",
+      "goal": "Finish the 6 items that matter, then stop. 25 of 48 done is enough to build with.",
+      "deliverable": "Next.js app deployed on Vercel with env vars",
+      "tip": "Parked for later: CSS Modules, SCSS, i18n, Edge runtime, Middleware, Rewrites, Husky, Lint-Staged.",
+      "resources": [
+        "Next.js"
+      ],
+      "tasks": [
+        {
+          "title": "error.js, nested error handling, global-error (26, 27, 28, 30)",
+          "days": 2
+        },
+        {
+          "title": "Tailwind v4 setup + adding it to an existing project (34, 35)",
+          "days": 1
+        },
+        {
+          "title": "next/image optimization + environment variables (36, 38)",
+          "days": 1
+        },
+        {
+          "title": "Prepare and deploy to Vercel with env vars (37). Then close the Next.js tab.",
+          "days": 1
+        }
+      ]
+    },
+    {
+      "name": "Node + Express core",
+      "color": "#0f5a43",
+      "goal": "Understand how a server works, not just copy routes.",
+      "deliverable": "Notes API running locally",
+      "tip": "Watch the video in 30–40 min chunks, pause, then code it again from a blank file.",
+      "resources": [
+        "Node + HTTP",
+        "Express"
+      ],
+      "tasks": [
+        {
+          "title": "HTTP, status codes, REST, JSON, Postman. Node runtime, modules, npm, fs, path",
+          "days": 2
+        },
+        {
+          "title": "Async JS: promises, async/await, event loop. Small scripts without the video",
+          "days": 2
+        },
+        {
+          "title": "Express: routing, req/res, params, query, body parsing",
+          "days": 3
+        },
+        {
+          "title": "Middleware, express.Router, MVC folders, dotenv, nodemon",
+          "days": 3
+        },
+        {
+          "title": "Mini project: Notes API (in-memory, then JSON file). No tutorial for this one",
+          "days": 4
+        }
+      ]
+    },
+    {
+      "name": "MongoDB + Mongoose",
+      "color": "#ef8a2f",
+      "goal": "Model data properly and build a real CRUD API.",
+      "deliverable": "Struvia API with your Redux frontend connected",
+      "tip": "Reusing Struvia gives you a real frontend to test against.",
+      "resources": [
+        "MongoDB"
+      ],
+      "tasks": [
+        {
+          "title": "Documents, collections, Atlas free cluster, Compass, CRUD in the shell",
+          "days": 3
+        },
+        {
+          "title": "Mongoose schemas, models, CRUD through Express",
+          "days": 4
+        },
+        {
+          "title": "Validation (Zod), refs + populate, indexes, pagination, filtering, sorting",
+          "days": 3
+        },
+        {
+          "title": "PROJECT 1: backend for your Struvia tracker. Connect your Redux frontend to it",
+          "days": 4
+        }
+      ]
+    },
+    {
+      "name": "Auth + production habits",
+      "color": "#5b6b46",
+      "goal": "The part most tutorials skip and interviewers ask about.",
+      "deliverable": "Job Tracker API live on Render + Atlas",
+      "tip": "Never store plain passwords, never commit .env, never trust req.body.",
+      "resources": [
+        "Auth + security",
+        "Deploy + tests"
+      ],
+      "tasks": [
+        {
+          "title": "bcrypt, JWT, httpOnly cookies, login/register/logout",
+          "days": 4
+        },
+        {
+          "title": "Auth middleware, protected routes, role-based access",
+          "days": 3
+        },
+        {
+          "title": "Central error handler, async wrapper, status codes, logging basics",
+          "days": 3
+        },
+        {
+          "title": "helmet, cors, rate limiting, sanitizing. File upload: multer + Cloudinary",
+          "days": 3
+        },
+        {
+          "title": "PROJECT 2: Job Tracker API with auth, deployed on Render + Atlas",
+          "days": 8
+        }
+      ]
+    },
+    {
+      "name": "Full-stack capstone",
+      "color": "#2f62c9",
+      "goal": "One polished Next.js + Express + MongoDB app, live and documented.",
+      "deliverable": "Capstone live, with README, Postman collection, demo",
+      "tip": "Ship something small and finished before adding features.",
+      "resources": [
+        "Deploy + tests",
+        "Next.js"
+      ],
+      "tasks": [
+        {
+          "title": "Connect Next.js to your API: CORS, cookies, protected pages",
+          "days": 3
+        },
+        {
+          "title": "PROJECT 3: Resume Builder v2 or an Edu-Devora backend. Real auth, real data",
+          "days": 13
+        },
+        {
+          "title": "Deploy: Vercel + Render + Atlas. Fix production bugs",
+          "days": 3
+        },
+        {
+          "title": "README with screenshots, API docs, Postman collection, 2-min demo",
+          "days": 2
+        }
+      ]
+    },
+    {
+      "name": "Polish + apply",
+      "color": "#7a4e2d",
+      "goal": "Turn the work into interviews.",
+      "deliverable": "Tests added, repos cleaned, 10+ applications sent",
+      "tip": "Optional: Docker basics, Redis caching.",
+      "resources": [
+        "Deploy + tests"
+      ],
+      "tasks": [
+        {
+          "title": "Basic tests: Jest + Supertest on auth and one CRUD route",
+          "days": 2
+        },
+        {
+          "title": "ESLint + Prettier on all repos (from your parked list)",
+          "days": 1
+        },
+        {
+          "title": "Update resume, LinkedIn, pinned GitHub repos with the 3 backend projects",
+          "days": 2
+        },
+        {
+          "title": "Apply daily, 10+ targeted applications. Keep DSA going",
+          "days": 4
+        }
+      ]
+    }
+  ],
+  "parallel": {
+    "tag": "DSA",
+    "name": "DSA in JavaScript",
+    "intro": "45–60 min every evening from Nov 1. Patterns over volume.",
+    "startDay": 12,
+    "resources": [
+      "DSA"
+    ],
+    "details": [
+      {
+        "label": "Block",
+        "text": "Evening, 45–60 min, JavaScript"
+      },
+      {
+        "label": "Rule",
+        "text": "Understand the pattern, then solve 2–3 easy to medium problems. Do not grind."
+      }
+    ],
+    "items": [
+      {
+        "title": "Arrays, strings, hashmaps (frequency count)",
+        "days": 7
+      },
+      {
+        "title": "Two pointers, sliding window, prefix sums",
+        "days": 14
+      },
+      {
+        "title": "Stack, queue, binary search",
+        "days": 14
+      },
+      {
+        "title": "Recursion, linked list, basic trees (DFS/BFS)",
+        "days": 14
+      },
+      {
+        "title": "Revisit weak topics, 2 timed mocks a week",
+        "days": 23
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "Project 1 · Struvia API",
+      "text": "Projects, tasks, status, filters. Mongoose + Zod, wired to your Redux frontend."
+    },
+    {
+      "title": "Project 2 · Job Tracker API",
+      "text": "Auth, protected routes, applications, status. Live on Render."
+    },
+    {
+      "title": "Project 3 · Capstone",
+      "text": "Next.js + Express + Mongo. Real auth, docs, demo video."
+    }
+  ],
+  "resources": [
+    {
+      "topic": "Next.js",
+      "links": [
+        {
+          "title": "Next.js Learn course",
+          "url": "https://nextjs.org/learn"
+        },
+        {
+          "title": "Error handling docs",
+          "url": "https://nextjs.org/docs/app/getting-started/error-handling"
+        },
+        {
+          "title": "Images docs",
+          "url": "https://nextjs.org/docs/app/getting-started/images"
+        }
+      ]
+    },
+    {
+      "topic": "Node + HTTP",
+      "links": [
+        {
+          "title": "Node.js official intro",
+          "url": "https://nodejs.org/en/learn"
+        },
+        {
+          "title": "MDN: HTTP overview",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+        },
+        {
+          "title": "javascript.info: async",
+          "url": "https://javascript.info/async"
+        }
+      ]
+    },
+    {
+      "topic": "Express",
+      "links": [
+        {
+          "title": "Express routing guide",
+          "url": "https://expressjs.com/en/guide/routing.html"
+        },
+        {
+          "title": "Postman (API testing)",
+          "url": "https://www.postman.com/"
+        }
+      ]
+    },
+    {
+      "topic": "MongoDB",
+      "links": [
+        {
+          "title": "MongoDB University",
+          "url": "https://learn.mongodb.com/"
+        },
+        {
+          "title": "Mongoose docs",
+          "url": "https://mongoosejs.com/docs/guide.html"
+        },
+        {
+          "title": "Zod validation",
+          "url": "https://zod.dev/"
+        }
+      ]
+    },
+    {
+      "topic": "Auth + security",
+      "links": [
+        {
+          "title": "JWT intro",
+          "url": "https://jwt.io/introduction"
+        },
+        {
+          "title": "OWASP password storage",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+        },
+        {
+          "title": "helmet",
+          "url": "https://www.npmjs.com/package/helmet"
+        }
+      ]
+    },
+    {
+      "topic": "Deploy + tests",
+      "links": [
+        {
+          "title": "Render: Express deploy",
+          "url": "https://render.com/docs/deploy-node-express-app"
+        },
+        {
+          "title": "MongoDB Atlas start",
+          "url": "https://www.mongodb.com/docs/atlas/getting-started/"
+        },
+        {
+          "title": "Supertest",
+          "url": "https://github.com/ladjs/supertest"
+        }
+      ]
+    },
+    {
+      "topic": "DSA",
+      "links": [
+        {
+          "title": "NeetCode roadmap",
+          "url": "https://neetcode.io/roadmap"
+        },
+        {
+          "title": "LeetCode problems",
+          "url": "https://leetcode.com/problemset/"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Daily rhythm",
+      "text": "Morning 2h learn. Afternoon 2h build. Evening 1h DSA. Last hour: notes + revise."
+    },
+    {
+      "title": "Video verdict",
+      "text": "Good for fundamentals. Auth, security and deployment need docs + your own projects."
+    },
+    {
+      "title": "No tutorial hopping",
+      "text": "One video, one docs set per topic. Finish a section, then build."
+    },
+    {
+      "title": "DSA: yes, lightly",
+      "text": "Helps fresher screening. JavaScript, 45–60 min/day, easy to medium."
+    },
+    {
+      "title": "Next.js rule",
+      "text": "Finish Phase 0 first. What is left is parked, not failed."
+    },
+    {
+      "title": "Git habit",
+      "text": "Commit daily. Your GitHub graph is part of the resume."
+    },
+    {
+      "title": "Sunday review",
+      "text": "Tick progress. List 3 things you did not get. Fix those first."
+    },
+    {
+      "title": "Cut rule",
+      "text": "Phase over by 3 days? Cut scope, never push the next phase."
+    },
+    {
+      "title": "Buffer",
+      "text": "Sunday evening is free. Catch up, do not start new topics."
+    }
+  ]
+}
