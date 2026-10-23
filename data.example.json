@@ -10,27 +10,43 @@
     {
       "name": "Next.js essentials only",
       "color": "#d9432a",
-      "goal": "Finish the 6 items that matter, then stop. 25 of 48 done is enough to build with.",
+      "goal": "Finish the topics that matter, at a pace that leaves room for practice. 25 of 48 done is enough to build with.",
       "deliverable": "Next.js app deployed on Vercel with env vars",
-      "tip": "Parked for later: CSS Modules, SCSS, i18n, Edge runtime, Middleware, Rewrites, Husky, Lint-Staged.",
+      "tip": "Pace: 1 long video or 2 short ones a day, practice included. Parked for later: CSS Modules, SCSS, i18n, Edge runtime, Middleware, Rewrites, Husky, Lint-Staged.",
       "resources": [
         "Next.js"
       ],
       "tasks": [
         {
-          "title": "error.js, nested error handling, global-error (26, 27, 28, 30)",
-          "days": 2
-        },
-        {
-          "title": "Tailwind v4 setup + adding it to an existing project (34, 35)",
+          "title": "26 error.js (long)",
           "days": 1
         },
         {
-          "title": "next/image optimization + environment variables (36, 38)",
+          "title": "27 Recovering from errors, 28 Nested route errors (2 short)",
           "days": 1
         },
         {
-          "title": "Prepare and deploy to Vercel with env vars (37). Then close the Next.js tab.",
+          "title": "29 Client-side exceptions, 30 Global error handling (2 short)",
+          "days": 1
+        },
+        {
+          "title": "34 Tailwind CSS v4 setup (long)",
+          "days": 1
+        },
+        {
+          "title": "35 Tailwind v4 in existing projects, 38 Environment variables (2 short)",
+          "days": 1
+        },
+        {
+          "title": "36 next/image optimization (long)",
+          "days": 1
+        },
+        {
+          "title": "37 Preparing the app for deployment (long)",
+          "days": 1
+        },
+        {
+          "title": "Deploy to Vercel with env vars, then close the Next.js tab",
           "days": 1
         }
       ]
@@ -40,31 +56,39 @@
       "color": "#0f5a43",
       "goal": "Understand how a server works, not just copy routes.",
       "deliverable": "Notes API running locally",
-      "tip": "Watch the video in 30–40 min chunks, pause, then code it again from a blank file.",
+      "tip": "Watch in chunks, pause, then code it again from a blank file. If a topic runs long, take the extra day.",
       "resources": [
         "Node + HTTP",
         "Express"
       ],
       "tasks": [
         {
-          "title": "HTTP, status codes, REST, JSON, Postman. Node runtime, modules, npm, fs, path",
+          "title": "HTTP, status codes, REST, JSON, Postman (several short topics)",
           "days": 2
         },
         {
-          "title": "Async JS: promises, async/await, event loop. Small scripts without the video",
+          "title": "Node runtime, modules, npm, fs, path (short topics)",
           "days": 2
         },
         {
-          "title": "Express: routing, req/res, params, query, body parsing",
+          "title": "Async JS: callbacks, promises, async/await, event loop (long, tricky)",
           "days": 3
         },
         {
-          "title": "Middleware, express.Router, MVC folders, dotenv, nodemon",
-          "days": 3
+          "title": "Express basics: server, routing, req/res, params, query",
+          "days": 2
         },
         {
-          "title": "Mini project: Notes API (in-memory, then JSON file). No tutorial for this one",
-          "days": 4
+          "title": "Body parsing and middleware (long)",
+          "days": 2
+        },
+        {
+          "title": "express.Router, MVC folders, dotenv, nodemon (short topics)",
+          "days": 1
+        },
+        {
+          "title": "Mini project: Notes API, in memory then JSON file. No tutorial for this one",
+          "days": 3
         }
       ]
     },
@@ -79,16 +103,28 @@
       ],
       "tasks": [
         {
-          "title": "Documents, collections, Atlas free cluster, Compass, CRUD in the shell",
+          "title": "MongoDB concepts, Atlas free cluster, Compass, CRUD in the shell",
+          "days": 2
+        },
+        {
+          "title": "Mongoose: connect, schemas, models (long)",
+          "days": 2
+        },
+        {
+          "title": "CRUD through Express + Mongoose (long)",
           "days": 3
         },
         {
-          "title": "Mongoose schemas, models, CRUD through Express",
-          "days": 4
+          "title": "Validation: Mongoose rules + Zod (short)",
+          "days": 1
         },
         {
-          "title": "Validation (Zod), refs + populate, indexes, pagination, filtering, sorting",
-          "days": 3
+          "title": "Relations: refs and populate (long)",
+          "days": 2
+        },
+        {
+          "title": "Indexes, pagination, filtering, sorting (short topics)",
+          "days": 1
         },
         {
           "title": "PROJECT 1: backend for your Struvia tracker. Connect your Redux frontend to it",
@@ -108,24 +144,36 @@
       ],
       "tasks": [
         {
-          "title": "bcrypt, JWT, httpOnly cookies, login/register/logout",
-          "days": 4
+          "title": "bcrypt, register and login (long)",
+          "days": 3
+        },
+        {
+          "title": "JWT and httpOnly cookies (long)",
+          "days": 3
         },
         {
           "title": "Auth middleware, protected routes, role-based access",
-          "days": 3
+          "days": 2
         },
         {
           "title": "Central error handler, async wrapper, status codes, logging basics",
-          "days": 3
+          "days": 2
         },
         {
-          "title": "helmet, cors, rate limiting, sanitizing. File upload: multer + Cloudinary",
-          "days": 3
+          "title": "helmet, cors, rate limiting, sanitizing (short topics)",
+          "days": 1
         },
         {
-          "title": "PROJECT 2: Job Tracker API with auth, deployed on Render + Atlas",
-          "days": 8
+          "title": "File upload: multer + Cloudinary",
+          "days": 2
+        },
+        {
+          "title": "PROJECT 2: Job Tracker API with auth",
+          "days": 6
+        },
+        {
+          "title": "Deploy Job Tracker to Render + Atlas",
+          "days": 2
         }
       ]
     },
@@ -145,16 +193,24 @@
           "days": 3
         },
         {
-          "title": "PROJECT 3: Resume Builder v2 or an Edu-Devora backend. Real auth, real data",
-          "days": 13
+          "title": "Capstone plan: schema, routes, wireframes",
+          "days": 1
+        },
+        {
+          "title": "PROJECT 3 backend: Resume Builder v2 or an Edu-Devora backend",
+          "days": 5
+        },
+        {
+          "title": "PROJECT 3 frontend integration. Real auth, real data",
+          "days": 5
         },
         {
           "title": "Deploy: Vercel + Render + Atlas. Fix production bugs",
-          "days": 3
+          "days": 2
         },
         {
           "title": "README with screenshots, API docs, Postman collection, 2-min demo",
-          "days": 2
+          "days": 3
         }
       ]
     },
@@ -359,6 +415,10 @@
     {
       "title": "Daily rhythm",
       "text": "Morning 2h learn. Afternoon 2h build. Evening 1h DSA. Last hour: notes + revise."
+    },
+    {
+      "title": "Pacing",
+      "text": "1 long video or 2 short ones a day, practice included. Long topics get more days."
     },
     {
       "title": "Video verdict",

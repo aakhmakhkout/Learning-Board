@@ -14,9 +14,19 @@ No build step, no dependencies, no account. Progress is saved in your browser's 
 - **Data:** paste a JSON file to replace the whole plan (see below).
 - **Light and dark** themes.
 
-## Run it
+## Install and offline use
 
-Open `index.html` in a browser. To host it, enable GitHub Pages for this repo (Settings → Pages → deploy from the `main` branch, root folder).
+The app is a PWA: it can be installed like a native app and works with no internet. There is no server. All your data stays in your browser's `localStorage`.
+
+1. Put every file in this repo on GitHub and enable GitHub Pages (Settings → Pages → deploy from the `main` branch, root folder).
+2. Open `https://<your-username>.github.io/Learning-Board/` in Chrome or Edge once while online.
+3. Click the install icon in the address bar, or the **Install** button in the app's top bar. On Android use the browser menu → Install app. On iPhone use Share → Add to Home Screen.
+
+After the first visit everything (the app, fonts and icons) is cached, so it opens offline in its own window. Updates download in the background and show up the next time you open it.
+
+Opening `index.html` straight from your disk still works as a normal page, but browsers only allow installing and offline caching over HTTPS (or `localhost`).
+
+Your plan and progress live in the browser profile where you use the app. Clearing site data for that site deletes them, and a different browser or device starts empty.
 
 ## Use your own plan
 
@@ -100,6 +110,8 @@ See `data.example.json` for a full working file.
 ## Files
 
 - `index.html`: the whole app.
+- `manifest.webmanifest`, `sw.js`, `icons/`: make it installable and offline.
+- `fonts/`: self-hosted fonts (Caveat, DM Sans, Special Elite, Bricolage Grotesque) so the app looks the same offline. Licenses are in `fonts/licenses/`.
 - `data.example.json`: the demo plan, in the format above.
 - `LICENSE`: MIT.
 
