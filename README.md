@@ -88,7 +88,7 @@ FORMAT
 | `meta.tagline` | One line under the heading. |
 | `meta.startDate` | `YYYY-MM-DD`. Required. |
 | `meta.hoursPerDay` | A number, used for the hours estimate. |
-| `phases[]` | Required, 1 to 12. Each has `name`, optional `color` (`#rrggbb`), `goal`, `deliverable`, `tip`, `resources` (topic names), and `tasks`. |
+| `phases[]` | Required, 1 to 20. Each has `name`, optional `color` (`#rrggbb`), `goal`, `deliverable`, `tip`, `resources` (topic names), and `tasks`. |
 | `phases[].tasks[]` | 1 to 25 per phase. `title`, and `days` (whole number, 1 to 60). Phases run one after another. |
 | `parallel` | Optional second track that runs beside the phases. `tag`, `name`, `intro`, `startDay`, `resources`, `details[]` (`label`, `text`) and `items[]` (same as tasks). Use `null` to leave it out. |
 | `projects[]` | Up to 8. `title`, `text`. |
