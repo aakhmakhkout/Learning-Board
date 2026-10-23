@@ -63,7 +63,7 @@ h1 em{font-style:normal;color:var(--red)}
 .sheet h2{margin:0 0 4px;font:800 30px var(--hd);letter-spacing:-.02em}
 .sub{color:var(--mut);font:400 12px var(--tw);margin-bottom:14px}
 .book{perspective:1800px;display:flex;background:#0f3d30;padding:10px;border-radius:6px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.pg{flex:1;height:560px;overflow:hidden;min-height:0;background:radial-gradient(rgba(38,54,107,.18) 1px,transparent 1.3px) 0 0/20px 20px,#f4efe2;color:var(--nk);padding:22px 26px;position:relative;font:500 22px/1.3 var(--hw)}
+.pg{flex:1;height:560px;overflow:hidden;min-height:0;background:radial-gradient(rgba(38,54,107,.18) 1px,transparent 1.3px) 0 0/20px 20px,#f4efe2;color:var(--nk);padding:24px 28px 32px;position:relative;font:500 22px/1.3 var(--hw)}
 .pg.l{border-radius:3px 0 0 3px;box-shadow:inset -30px 0 26px -22px rgba(0,0,0,.4)}
 .pg.r{border-radius:0 3px 3px 0;box-shadow:inset 30px 0 26px -22px rgba(0,0,0,.4);transform-origin:left center}
 .pg.r.fl{transform:rotateY(-90deg);transition:transform .3s ease-in}
@@ -343,19 +343,25 @@ function mh(a,side){var m=document.createElement("div");m.className="pg "+(side=
 function pag(hs,c0,c1){var pg=[[]],h=0,c=c0;hs.forEach(function(x,i){var p=pg[pg.length-1];if(p.length&&(p.length>=8||h+x>c)){p=[];pg.push(p);h=0;c=c1}p.push(i);h+=x});return pg}
 function hdr(s,k,n){var p=P[s.i],g=p.n.split("· ")[1],tag='<span class="b-ph">Phase '+s.i+(n>1?' · '+(k+1)+'/'+n:'')+'</span>',c='<div class="cnt">'+cnt(s.i)+' / '+p.t.length+' done</div>';
 return k==0?tag+'<div class="b-h">'+g+'</div><span class="b-d">'+pdate(s.i)+'</span><div class="b-t">'+p.goal+'</div><div class="b-s">'+p.tip+'</div>'+c:tag+'<div class="b-sh">'+g+'</div>'+c}
+function fit(bl,side,hf){var m=document.createElement("div");m.className="pg "+(side=="L"?"l":"r");m.style.cssText="position:absolute;left:-9999px;top:0;visibility:hidden;width:"+pw()+"px";document.body.appendChild(m);
+var pages=[[]],box=function(){return m.getBoundingClientRect().bottom},full=function(){var k=m.lastElementChild;return k&&k.getBoundingClientRect().bottom>box()-32};
+m.innerHTML=hf?hf(0):"";
+bl.forEach(function(h,i){var cur=pages[pages.length-1];m.insertAdjacentHTML("beforeend",h);
+if(cur.length&&full()){m.removeChild(m.lastElementChild);m.innerHTML=hf?hf(pages.length):"";m.insertAdjacentHTML("beforeend",h);pages.push([i])}else cur.push(i)});
+document.body.removeChild(m);return pages}
 function lay(){if(LAY)return LAY;var out=[];
 sps().forEach(function(s){var u=S.nbn[s.k]||{},p=s.i!=null?P[s.i]:null,f0=out.length,
 rb=(p?p.t.map(function(t,j){return chk("p"+s.i+"_"+j,tdate("p"+s.i+"_"+j),t[1])}):[]).concat((u.R||[]).map(function(b,i){return blk(b,"R",i)})),
 lb=(u.L||[]).map(function(b,i){return blk(b,"L",i)}),
-h0=p?mh([hdr(s,0,1)],"L")[0]:0,h1=p?mh([hdr(s,1,2)],"L")[0]:0,
-rp=pag(mh(rb,"R"),PH_CAP,PH_CAP),lp=pag(mh(lb,"L"),PH_CAP-h0,PH_CAP-h1),n=Math.max(rp.length,lp.length);
+
+rp=fit(rb,"R",null),lp=fit(lb,"L",p?function(k){return hdr(s,k,k?2:1)}:null),n=Math.max(rp.length,lp.length);
 for(var k=0;k<n;k++)out.push({s:s,f:f0,rn:rp.length,ln:lp.length,Lh:(p?hdr(s,k,n):"")+(lp[k]||[]).map(function(i){return lb[i]}).join(""),Rh:(rp[k]||[]).map(function(i){return rb[i]}).join("")})});
 LAY=out;return out}
 function nbk(){var ly=lay();if(bp>=ly.length)bp=ly.length-1;if(bp<0)bp=0;var g=ly[bp],s=g.s;
 function o(v,t,c){return '<option value="'+v+'"'+(c==v?' selected':'')+'>'+t+'</option>'}
 return '<div class="book"><div class="pg l">'+g.Lh+'</div><div class="pg r" id="rp">'+g.Rh+'</div></div><div class="nv"><button data-f="-1">◀</button>Page '+(bp+1)+' of '+ly.length+'<button data-f="1">▶</button></div><div class="sheet bar" style="margin-top:12px"><select id="as">'+o("L","Left page",as)+o("R","Right page",as)+'</select><select id="ak">'+o("h","Heading",ak)+o("sh","Subheading",ak)+o("d","Date",ak)+o("ph","Phase tag",ak)+o("t","Text",ak)+o("c","Checkbox",ak)+o("b","Bullet",ak)+o("s","Sticky note",ak)+'</select><input id="ai" placeholder="Write something…" maxlength="160"><button class="btn" data-add>Add</button><button class="btn gh" data-np>+ New page</button>'+(s.u?'<button class="btn gh" data-dp>Delete page</button>':'')+'</div>'}
 addEventListener("resize",function(){LAY=null;if(cur=="nb")draw()});
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){LAY=null;if(cur=="nb")draw()});
+(function(){function go(){LAY=null;if(cur=="nb")draw()}if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('500 22px Caveat'),document.fonts.load('700 36px Caveat'),document.fonts.load('400 12px "Special Elite"')]).then(go,go);document.fonts.ready.then(go)}})();
 var V={nb:nbk,tl:tl2,fs:files,wb:wb2,rs:rsh,an:an,dt:dt};
 function draw(){var s=$("#pn").scrollTop;$("#pn").innerHTML=V[cur]();$("#pn").scrollTop=s}
 function open(n){cur=n;if(n=="fs")fv="";$("#pn").innerHTML=V[n]();$("#pn").scrollTop=0;$("#ov").classList.add("on")}
