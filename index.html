@@ -438,8 +438,11 @@ LAY=out;return out}
 function nbk(){var ly=lay();if(bp>=ly.length)bp=ly.length-1;if(bp<0)bp=0;var g=ly[bp],s=g.s;
 function o(v,t,c){return '<option value="'+v+'"'+(c==v?' selected':'')+'>'+t+'</option>'}
 return '<div class="book"><div class="pg l">'+g.Lh+'</div><div class="pg r" id="rp">'+g.Rh+'</div></div><div class="nv"><button data-f="-1">◀</button>Page '+(bp+1)+' of '+ly.length+'<button data-f="1">▶</button></div><div class="sheet bar" style="margin-top:12px"><select id="as">'+o("L",MOB?"Top page":"Left page",as)+o("R",MOB?"Bottom page":"Right page",as)+'</select><select id="ak">'+o("h","Heading",ak)+o("sh","Subheading",ak)+o("d","Date",ak)+o("ph","Phase tag",ak)+o("t","Text",ak)+o("c","Checkbox",ak)+o("b","Bullet",ak)+o("s","Sticky note",ak)+'</select><input id="ai" placeholder="Write something…" maxlength="160"><button class="btn" data-add>Add</button><button class="btn gh" data-np>+ New page</button>'+(s.u?'<button class="btn gh" data-dp>Delete page</button>':'')+'</div>'}
-addEventListener("resize",function(){size();LAY=null;if(cur=="nb"&&!flp)draw();clearTimeout(rt);rt=setTimeout(function(){if(!dg)board()},120)});
-(function(){function go(){LAY=null;if(cur=="nb")draw()}if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('500 22px Caveat'),document.fonts.load('700 36px Caveat'),document.fonts.load('400 12px "Special Elite"')]).then(go,go);document.fonts.ready.then(go)}})();
+var lastW=innerWidth,lastH=innerHeight;
+addEventListener("resize",function(){var a=document.activeElement,typing=a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName),dw=innerWidth!==lastW,dh=Math.abs(innerHeight-lastH);
+if(!dw&&(typing||dh<150))return;lastW=innerWidth;lastH=innerHeight;
+size();LAY=null;if(cur=="nb"&&!flp)draw();clearTimeout(rt);rt=setTimeout(function(){if(!dg)board()},120)});
+(function(){function go(){LAY=null;var a=document.activeElement;if(cur=="nb"&&!(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)))draw()}if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('500 22px Caveat'),document.fonts.load('700 36px Caveat'),document.fonts.load('400 12px "Special Elite"')]).then(go,go);document.fonts.ready.then(go)}})();
 var GPH=`Hello Claude! I use a planner web app called Learning Board:
 https://github.com/aakhmakhkout/Learning-Board
 It loads a learning plan from a JSON data file. Please create that file for me.
