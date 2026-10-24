@@ -10,17 +10,20 @@ No build step, no dependencies, no account. Progress is saved in your browser's 
 - **Notebook:** a book with one page spread per phase. Add pages, headings, dates, phase tags, text, checkboxes, bullets and sticky notes on either side.
 - **Timeline:** week strip, per-phase dates, hours, deliverables and progress.
 - **Files:** every task as a file icon, split into open and closed. Open one for details, reading links and your own notes, then close it.
-- **Self-adjusting dates:** a task that is not ticked by its end date keeps today as its end date, and everything after it moves. Each phase also has +1 / −1 day buttons.
+- **Self-adjusting dates:** a task that is not ticked by its end date keeps today as its end date, and everything after it moves back. Tick a task early and everything after it moves up, so no day is left empty. Each phase also has +1 / −1 day buttons.
 - **Data:** paste a JSON file to replace the whole plan (see below).
+- **Mobile and tablet layout:** a burger menu, a notebook that stacks top and bottom on phones and turns pages like a real book (with the next or previous page showing underneath), press-and-hold (half a second) to drag notes on touch screens, and pages that resize to the window.
+- **Guide:** the **How to use** button in the app has the steps, the prompt template and a filled-in demo prompt with copy buttons.
 - **Light and dark** themes.
 
 ## Install and offline use
 
 The app is a PWA: it can be installed like a native app and works with no internet. There is no server. All your data stays in your browser's `localStorage`.
 
-1. Put every file in this repo on GitHub and enable GitHub Pages (Settings → Pages → deploy from the `main` branch, root folder).
-2. Open `https://<your-username>.github.io/Learning-Board/` in Chrome or Edge once while online.
-3. Click the install icon in the address bar, or the **Install** button in the app's top bar. On Android use the browser menu → Install app. On iPhone use Share → Add to Home Screen.
+1. Push this repo to GitHub.
+2. On [vercel.com](https://vercel.com) choose **Add New → Project**, import the repo, set **Framework Preset** to **Other**, leave the build command and output directory empty, and deploy. Every push redeploys it. GitHub Pages or any other static host works the same way.
+3. Open your production URL (for example `https://learning-board.vercel.app`) in Chrome or Edge once while online. Use the production domain, not a preview URL, because preview deployments can be behind Vercel's login and then the manifest can't load.
+4. Click the install icon in the address bar, or the **Install** button in the app's top bar. On Android use the browser menu → Install app. On iPhone use Share → Add to Home Screen.
 
 After the first visit everything (the app, fonts and icons) is cached, so it opens offline in its own window. Updates download in the background and show up the next time you open it.
 
@@ -111,6 +114,7 @@ See `data.example.json` for a full working file.
 
 - `index.html`: the whole app.
 - `manifest.webmanifest`, `sw.js`, `icons/`: make it installable and offline.
+- `vercel.json`: cache headers for Vercel (safe to delete on other hosts).
 - `fonts/`: self-hosted fonts (Caveat, DM Sans, Special Elite, Bricolage Grotesque) so the app looks the same offline. Licenses are in `fonts/licenses/`.
 - `data.example.json`: the demo plan, in the format above.
 - `LICENSE`: MIT.

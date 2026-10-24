@@ -26,7 +26,8 @@
 --pl:1% 5%,32% 0,64% 3%,99% 0,100% 38%,97% 70%,100% 99%,62% 100%,30% 96%,0 100%,3% 62%,0 32%;--pi:2% 4%,30% 1%,66% 4%,98% 1%,99% 40%,97% 72%,99% 98%,62% 99%,30% 97%,1% 99%,3% 60%,1% 30%}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--grid:rgba(255,255,255,.05);--card:#1c1c1c;--ink:#efeae0;--mut:#9a948a;--line:rgba(255,255,255,.16);--cable:rgba(255,255,255,.1)}}
 :root[data-theme="dark"]{--bg:#121212;--grid:rgba(255,255,255,.05);--card:#1c1c1c;--ink:#efeae0;--mut:#9a948a;--line:rgba(255,255,255,.16);--cable:rgba(255,255,255,.1)}
-*{box-sizing:border-box}
+*{box-sizing:border-box;scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;min-height:100%;font:15px/1.5 var(--bd);color:var(--ink);background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/32px 32px,var(--bg)}
 #bgc{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
@@ -58,12 +59,12 @@ h1 em{font-style:normal;color:var(--red)}
 .sec{display:flex;align-items:baseline;gap:12px;margin:34px 0 10px}
 .sec h2{margin:0;font:800 28px var(--hd);letter-spacing:-.02em}
 .sec span{color:var(--mut);font:400 12px var(--tw)}
-#cork{position:relative;isolation:isolate;z-index:0;border:9px solid #0e2f25;border-radius:8px;touch-action:none;background:linear-gradient(rgba(255,255,255,.34) 1px,transparent 1px) 0 0/120px 120px,linear-gradient(90deg,rgba(255,255,255,.34) 1px,transparent 1px) 0 0/120px 120px,linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px) 0 0/24px 24px,radial-gradient(circle at 0 100%,transparent 139px,rgba(255,255,255,.3) 140px,transparent 142px,transparent 199px,rgba(255,255,255,.22) 200px,transparent 202px),radial-gradient(ellipse at 50% 30%,#2a7a5d,#1b5c46 70%);box-shadow:0 34px 50px -14px rgba(0,0,0,.6),0 3px 0 #0a2219,inset 0 0 0 2px rgba(255,255,255,.18),inset 0 0 60px rgba(0,0,0,.35)}
+#cork{position:relative;isolation:isolate;z-index:0;border:9px solid #0e2f25;border-radius:8px;touch-action:pan-y;background:linear-gradient(rgba(255,255,255,.34) 1px,transparent 1px) 0 0/120px 120px,linear-gradient(90deg,rgba(255,255,255,.34) 1px,transparent 1px) 0 0/120px 120px,linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px) 0 0/24px 24px,radial-gradient(circle at 0 100%,transparent 139px,rgba(255,255,255,.3) 140px,transparent 142px,transparent 199px,rgba(255,255,255,.22) 200px,transparent 202px),radial-gradient(ellipse at 50% 30%,#2a7a5d,#1b5c46 70%);box-shadow:0 34px 50px -14px rgba(0,0,0,.6),0 3px 0 #0a2219,inset 0 0 0 2px rgba(255,255,255,.18),inset 0 0 60px rgba(0,0,0,.35)}
 #cork:before,#cork:after{content:"";position:absolute;z-index:0;pointer-events:none;background-repeat:no-repeat}
 #cork:before{left:0;right:0;top:0;height:14px;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 1px,transparent 1px 12px),repeating-linear-gradient(90deg,rgba(255,255,255,.85) 0 1.5px,transparent 1.5px 60px);background-size:100% 6px,100% 12px}
 #cork:after{left:0;top:0;bottom:0;width:14px;background-image:repeating-linear-gradient(180deg,rgba(255,255,255,.55) 0 1px,transparent 1px 12px),repeating-linear-gradient(180deg,rgba(255,255,255,.85) 0 1.5px,transparent 1.5px 60px);background-size:6px 100%,12px 100%}
 .mcap{position:absolute;right:16px;bottom:10px;font:400 11px var(--tw);color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
-.note{position:absolute;z-index:1;transform:rotate(var(--r));cursor:grab;transition:transform .15s}
+.note{position:absolute;z-index:1;transform:rotate(var(--r));cursor:grab;transition:transform .15s;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 .note:hover{transform:rotate(0) scale(1.04);z-index:3}
 .note.drag{cursor:grabbing;transform:rotate(0) scale(1.07)}
 .note .in{user-select:none}
@@ -79,8 +80,33 @@ h1 em{font-style:normal;color:var(--red)}
 .sheet{background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 24px,var(--card);border:1px solid var(--line);border-radius:4px;padding:22px 24px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
 .sheet h2{margin:0 0 4px;font:800 30px var(--hd);letter-spacing:-.02em}
 .sub{color:var(--mut);font:400 12px var(--tw);margin-bottom:14px}
-.book{perspective:1800px;display:flex;background:#0f3d30;padding:10px;border-radius:6px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.pg{flex:1;height:560px;overflow:hidden;min-height:0;background:radial-gradient(rgba(38,54,107,.18) 1px,transparent 1.3px) 0 0/20px 20px,#f4efe2;color:var(--nk);padding:24px 28px 32px;position:relative;font:500 22px/1.3 var(--hw)}
+body{overflow-x:hidden}
+.note{max-width:260px}
+#cork.cmp .cut .cp{padding:5px}
+#cork.cmp .cut .in{padding:8px 9px 10px}
+#cork.cmp .hd{font-size:12.5px;margin:1px 0 2px}
+#cork.cmp .in p{font-size:10.5px;line-height:1.3}
+#cork.cmp .nt{font-size:8.5px}
+.book{--bp:16px;position:relative;perspective:1800px;display:flex;padding:var(--bp);border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.45);background:radial-gradient(circle at 9px 9px,#e0b85a 3px,transparent 4px),radial-gradient(circle at calc(100% - 9px) 9px,#e0b85a 3px,transparent 4px),radial-gradient(circle at 9px calc(100% - 9px),#e0b85a 3px,transparent 4px),radial-gradient(circle at calc(100% - 9px) calc(100% - 9px),#e0b85a 3px,transparent 4px),linear-gradient(90deg,transparent calc(100% - 13px),#a3281c calc(100% - 13px),#7e1d14 calc(100% - 5px),transparent calc(100% - 5px)),repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px),#0f3d30}
+.book:before{content:"";position:absolute;inset:5px;border:2px dashed rgba(224,184,90,.55);border-radius:6px;pointer-events:none}
+.leaf{position:absolute;height:var(--ph);z-index:6;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.45,.05,.2,1);will-change:transform}
+.leaf .pg{position:absolute;inset:0;width:auto;height:auto;flex:none;margin:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.leaf.h .face.b{transform:rotateY(180deg)}.leaf.v .face.b{transform:rotateX(180deg)}
+.leaf.h.fwd{top:var(--bp);left:50%;width:calc(50% - var(--bp));transform-origin:left center}
+.leaf.h.bwd{top:var(--bp);left:var(--bp);width:calc(50% - var(--bp));transform-origin:right center}
+.leaf.v.fwd{left:var(--bp);right:var(--bp);top:calc(var(--bp) + var(--ph));transform-origin:center top}
+.leaf.v.bwd{left:var(--bp);right:var(--bp);top:var(--bp);transform-origin:center bottom}
+.cast{position:absolute;pointer-events:none;z-index:5;opacity:0;height:var(--ph)}
+.cast.h.fwd{top:var(--bp);left:50%;width:calc(50% - var(--bp));background:linear-gradient(90deg,rgba(0,0,0,.4),transparent 70%)}
+.cast.h.bwd{top:var(--bp);left:var(--bp);width:calc(50% - var(--bp));background:linear-gradient(270deg,rgba(0,0,0,.4),transparent 70%)}
+.cast.v.fwd{left:var(--bp);right:var(--bp);top:calc(var(--bp) + var(--ph));background:linear-gradient(180deg,rgba(0,0,0,.4),transparent 70%)}
+.cast.v.bwd{left:var(--bp);right:var(--bp);top:var(--bp);background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 70%)}
+.cast.go{animation:castA .78s ease-in-out}
+@keyframes castA{0%{opacity:0}45%{opacity:1}100%{opacity:0}}
+.gs{margin:0 0 14px;padding-left:20px}.gs li{margin:6px 0}
+.gp{width:100%;font:12px/1.5 var(--tw);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px;resize:vertical}
+.gr{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 6px}.gr b{font:800 16px var(--hd)}
+.pg{flex:1;height:var(--ph,560px);overflow-x:hidden;overflow-y:auto;min-height:0;background:radial-gradient(rgba(38,54,107,.18) 1px,transparent 1.3px) 0 0/20px 20px,#f4efe2;color:var(--nk);padding:24px 28px 32px;position:relative;font:500 22px/1.3 var(--hw)}
 .pg.l{border-radius:3px 0 0 3px;box-shadow:inset -30px 0 26px -22px rgba(0,0,0,.4)}
 .pg.r{border-radius:0 3px 3px 0;box-shadow:inset 30px 0 26px -22px rgba(0,0,0,.4);transform-origin:left center}
 .pg.r.fl{transform:rotateY(-90deg);transition:transform .3s ease-in}
@@ -170,13 +196,43 @@ h1 em{font-style:normal;color:var(--red)}
 .adj button:hover{background:var(--line)}
 #dta{width:100%;font:12px/1.5 var(--tw);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px;resize:vertical}
 .dmsg{min-height:22px;margin:8px 0;font:400 13px var(--tw);color:#1f9d6e}.dmsg.err{color:var(--red)}
-@media(max-width:720px){#hero{grid-template-columns:1fr}.book{flex-direction:column}.pg.l{box-shadow:none}.pg{min-height:0}.tr .d,.ck .d{width:74px}}
+nav{position:relative}
+#mn{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.burger{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--card);flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0}
+.burger i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .2s}
+.burger.open i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open i:nth-child(2){opacity:0}
+.burger.open i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:800px){
+.burger{display:flex}
+#mn{position:absolute;left:0;right:0;top:calc(100% - 4px);z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-12px) scale(.97);transform-origin:top right;transition:opacity .25s,transform .3s cubic-bezier(.2,.9,.3,1.1),visibility .25s}
+#mn.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+#mn button{border:1px solid var(--line);border-radius:10px;padding:12px 8px;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .3s,background .2s}
+#mn.open button{opacity:1;transform:none}
+#mn.open button:nth-child(2){transition-delay:.04s}#mn.open button:nth-child(3){transition-delay:.08s}#mn.open button:nth-child(4){transition-delay:.12s}#mn.open button:nth-child(5){transition-delay:.16s}#mn.open button:nth-child(6){transition-delay:.2s}#mn.open button:nth-child(7){transition-delay:.24s}#mn.open button:nth-child(8){transition-delay:.28s}#mn.open button:nth-child(9){transition-delay:.32s}#mn.open button:nth-child(10){transition-delay:.36s}
+#mn button.pri{grid-column:1/-1}
+}
+@media(max-width:720px){
+.w{padding:0 14px 60px}
+.sheet{padding:16px 14px}
+.pg{font-size:20px;padding:20px 22px 28px}.b-h{font-size:30px}.b-sh{font-size:23px}.b-s{font-size:18px}.fgi{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}.fi svg{width:54px;height:auto}
+}
+@media(max-width:720px){#hero{grid-template-columns:1fr}.tr .d,.ck .d{width:74px}}
+@media(max-width:560px){
+.book{--bp:12px;flex-direction:column}
+.pg{flex:none;width:100%;font-size:18px;padding:16px 18px 26px}
+.pg.l{border-radius:3px 3px 0 0;box-shadow:none}
+.pg.r{border-radius:0 0 3px 3px;box-shadow:none;padding-top:24px}
+.pg.l:after{content:"";position:absolute;left:16px;right:16px;bottom:0;border-bottom:2px dashed rgba(38,54,107,.35)}
+.fgi{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:6px 4px}
+.fi{padding:6px 0}.fi svg{width:42px;height:auto}.fi .fn{font-size:11.5px}.fi .fd{font-size:9px}
+}
 </style></head><body>
 <svg id="bgc" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice"><path d="M1230 -20 C1380 160 1250 400 960 520 S420 500 500 640 S280 760 140 600"/></svg>
 <div class="w">
 <nav id="nav"><div class="logo" id="lg">N</div><b class="wm" id="wm">Noumaan</b><div class="dots"><i style="background:#f0b429"></i><i style="background:#2f62c9"></i><i style="background:var(--red)"></i></div>
-<button data-open="nb">Notebook</button><button data-open="tl">Timeline</button><button data-open="fs">Files</button><button data-open="wb" id="nwb">DSA</button><button data-open="rs">Resources</button><button class="pri" data-open="an">+ Note</button><button id="inst" hidden>Install</button><button data-open="dt">Data</button><button id="th" aria-label="Toggle theme">◐</button></nav>
-<section id="hero"><div><span class="tag" id="rng">Oct 20, 2026 → Jan 11, 2027</span><span class="tag" id="hrs">5–6 hrs / day</span><h1 id="h1">Backend<br><em>Journey</em></h1><p class="lead" id="ld">Finish the Next.js essentials, then Node, Express and MongoDB, then ship a full-stack project. One page, every date.</p><div id="seg"></div><div id="sg"></div></div><div id="nx" class="cut"></div></section>
+<button id="bg" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button><div id="mn"><button data-open="nb">Notebook</button><button data-open="tl">Timeline</button><button data-open="fs">Files</button><button data-open="wb" id="nwb">DSA</button><button data-open="rs">Resources</button><button class="pri" data-open="an">+ Note</button><button data-open="gd">Guide</button><button id="inst" hidden>Install</button><button data-open="dt">Data</button><button id="th" aria-label="Toggle theme">◐</button></div></nav>
+<section id="hero"><div><span class="tag" id="rng">Oct 20, 2026 → Jan 11, 2027</span><span class="tag" id="hrs">5–6 hrs / day</span><h1 id="h1">Backend<br><em>Journey</em></h1><p class="lead" id="ld">Finish the Next.js essentials, then Node, Express and MongoDB, then ship a full-stack project. One page, every date.</p><div id="seg"></div><div id="sg"></div><button class="btn" data-open="gd" style="margin-top:16px">How to use →</button></div><div id="nx" class="cut"></div></section>
 <div class="sec"><h2>Pinboard</h2><span>drag the notes · add your own</span></div>
 <div id="cork"></div></div>
 <div id="ov"><button id="x" aria-label="Close">✕</button><div id="pn"></div></div>
@@ -251,12 +307,12 @@ function today(){var t=new Date();t.setHours(0,0,0,0);return t}
 function dayTxt(){var dn=off(today())+1,tt=TOT();return dn<1?"Starts in "+(1-dn)+(dn==0?" day":" days"):dn>tt?"Window ended":"Day "+dn+" of "+tt}
 function hero(){var a=ids(),n=a.filter(function(x){return S[x]}).length,nx=null;
 $("#seg").innerHTML=P.map(function(p,i){return '<i style="flex:'+p.t.length+';--pc:'+p.c+'"><b style="width:'+Math.round(cnt(i)/p.t.length*100)+'%"></b></i>'}).join("");
-$("#sg").textContent=n+" of "+a.length+" tasks done · "+dayTxt();var tt=sched().tot,en=dd_(tt-1);$("#rng").textContent=fld(dd_(0))+" → "+fld(en)+(tt>BT?" (+"+(tt-BT)+"d)":"");
+$("#sg").textContent=n+" of "+a.length+" tasks done · "+dayTxt();var tt=sched().tot,en=dd_(tt-1);$("#rng").textContent=fld(dd_(0))+" → "+fld(en)+(tt!=BT?" ("+(tt>BT?"+":"−")+Math.abs(tt-BT)+"d)":"");
 P.forEach(function(p,i){p.t.forEach(function(t,j){if(!nx&&!S["p"+i+"_"+j])nx=[i,[tdate("p"+i+"_"+j),t[1]]]})});
 $("#nx").innerHTML='<div class="cp"><div class="in"><span class="nt">'+dayTxt()+'</span><div class="hd">'+(nx?"Up next":"All done")+'</div>'+(nx?'<span class="nt" style="color:#171717">Phase '+nx[0]+' · '+nx[1][0]+'</span><p>'+nx[1][1]+'</p>':'<p>Every task is closed.</p>')+'</div></div>'}
 function chk(id,d,x){return '<label class="t'+(S[id]?' done':'')+'"><input type="checkbox" data-id="'+id+'"'+(S[id]?' checked':'')+'><i class="bx"></i><span class="tx"><em>'+d+'</em>'+x+'</span></label>'}
 function allNotes(){return N.map(function(n,i){return{id:"d"+i,c:n[0],t:n[1],x:n[2]}}).concat(S.cn.map(function(n){return{id:"c"+n.id,c:n.c,t:esc(n.t),x:esc(n.x),del:n.id}}))}
-function board(){var L=allNotes(),c=innerWidth<640?2:innerWidth<1000?3:4,r=Math.ceil(L.length/c),k=$("#cork");k.style.height=Math.max(460,r*200)+"px";k.innerHTML=L.map(function(n,i){var p=S.pos[n.id]||[2+(i%c)*(98/c),4+Math.floor(i/c)*(94/r)];return '<div class="note cut '+n.c+'" data-i="'+n.id+'" style="left:'+p[0]+'%;top:'+p[1]+'%;width:'+(92/c-1)+'%;--r:'+((i*37%7)-3)+'deg"><div class="cp">'+(n.del?'<u class="nx" data-del="'+n.del+'">✕</u>':'')+'<div class="in"><div class="nt">Note '+String(i+1).padStart(2,"0")+'</div><div class="hd">'+n.t+'</div><p>'+n.x+'</p></div></div></div>'}).join("")+'<div class="mcap">'+esc(META.name)+" · "+esc(META.title)+'</div>'}
+function board(){var L=allNotes(),k=$("#cork"),cw=k.clientWidth||Math.min(innerWidth,1100),c=cw<520?2:cw<820?3:4,r=Math.ceil(L.length/c),rh=c==2?150:c==3?185:200;PK=c==4?"pos":"pos"+c;S[PK]=S[PK]||{};k.className=c==2?"cmp":"";k.style.height=Math.max(380,r*rh+30)+"px";k.innerHTML=L.map(function(n,i){var p=S[PK][n.id]||[2+(i%c)*(98/c),4+Math.floor(i/c)*(94/r)];return '<div class="note cut '+n.c+'" data-i="'+n.id+'" style="left:'+p[0]+'%;top:'+p[1]+'%;width:'+(92/c-1)+'%;--r:'+((i*37%7)-3)+'deg"><div class="cp">'+(n.del?'<u class="nx" data-del="'+n.del+'">✕</u>':'')+'<div class="in"><div class="nt">Note '+String(i+1).padStart(2,"0")+'</div><div class="hd">'+n.t+'</div><p>'+n.x+'</p></div></div></div>'}).join("")+'<div class="mcap">'+esc(META.name)+" · "+esc(META.title)+'</div>'}
 function sps(){return P.map(function(p,i){return{k:"p"+i,i:i}}).concat(S.pages.map(function(g){return{k:"u"+g.id,u:g.id}}))}
 function blk(b,side,i,k){var x=esc(b.x),del='<u class="ed" data-db="'+side+'|'+i+'">✕</u>';
 if(b.k=="h")return '<div class="b-h">'+x+del+'</div>';if(b.k=="sh")return '<div class="b-sh">'+x+del+'</div>';
@@ -269,7 +325,7 @@ function nb(){var ss=sps(),s=ss[bp]||ss[0],u=S.nbn[s.k]||{L:[],R:[]},L="",Rr="";
 if(s.i!=null){var p=P[s.i];L='<span class="b-ph">Phase '+s.i+'</span><div class="b-h">'+p.n.split("· ")[1]+'</div><span class="b-d">'+pdate(s.i)+'</span><div class="b-t">'+p.goal+'</div><div class="b-s">'+p.tip+'</div><div class="cnt">'+cnt(s.i)+' / '+p.t.length+' done</div>';Rr=p.t.map(function(t,j){return chk("p"+s.i+"_"+j,tdate("p"+s.i+"_"+j),t[1])}).join("")}
 L+=(u.L||[]).map(function(b,i){return blk(b,"L",i)}).join("");Rr+=(u.R||[]).map(function(b,i){return blk(b,"R",i)}).join("");
 function o(v,t,c){return '<option value="'+v+'"'+(c==v?' selected':'')+'>'+t+'</option>'}
-return '<div class="book"><div class="pg l">'+L+'</div><div class="pg r" id="rp">'+Rr+'</div></div><div class="nv"><button data-f="-1">◀</button>Page '+(bp+1)+' of '+ss.length+'<button data-f="1">▶</button></div><div class="sheet bar" style="margin-top:12px"><select id="as">'+o("L","Left page",as)+o("R","Right page",as)+'</select><select id="ak">'+o("h","Heading",ak)+o("sh","Subheading",ak)+o("d","Date",ak)+o("ph","Phase tag",ak)+o("t","Text",ak)+o("c","Checkbox",ak)+o("b","Bullet",ak)+o("s","Sticky note",ak)+'</select><input id="ai" placeholder="Write something…" maxlength="160"><button class="btn" data-add>Add</button><button class="btn gh" data-np>+ New page</button>'+(s.u?'<button class="btn gh" data-dp>Delete page</button>':'')+'</div>'}
+return '<div class="book"><div class="pg l">'+L+'</div><div class="pg r" id="rp">'+Rr+'</div></div><div class="nv"><button data-f="-1">◀</button>Page '+(bp+1)+' of '+ss.length+'<button data-f="1">▶</button></div><div class="sheet bar" style="margin-top:12px"><select id="as">'+o("L",MOB?"Top page":"Left page",as)+o("R",MOB?"Bottom page":"Right page",as)+'</select><select id="ak">'+o("h","Heading",ak)+o("sh","Subheading",ak)+o("d","Date",ak)+o("ph","Phase tag",ak)+o("t","Text",ak)+o("c","Checkbox",ak)+o("b","Bullet",ak)+o("s","Sticky note",ak)+'</select><input id="ai" placeholder="Write something…" maxlength="160"><button class="btn" data-add>Add</button><button class="btn gh" data-np>+ New page</button>'+(s.u?'<button class="btn gh" data-dp>Delete page</button>':'')+'</div>'}
 function tl(){var t=today(),t0=new Date("2026-10-20T00:00"),wk="";
 for(var w=0;w<12;w++){var ws=new Date(t0.getTime()+w*6048e5),we=new Date(ws.getTime()+6048e5),mid=new Date(ws.getTime()+3*864e5),pi=0;P.forEach(function(p,i){if(mid>=new Date(p.s+"T00:00"))pi=i});wk+='<div class="'+((t>=ws&&t<we)?'now':'')+'" style="background:'+P[pi].c+'">W'+(w+1)+'<br>'+ws.toLocaleDateString("en-GB",{day:"numeric",month:"short"})+'</div>'}
 return '<div class="sheet"><h2>Timeline</h2><div class="sub">'+dayTxt()+' · Oct 20, 2026 → Jan 11, 2027 · about 5 hrs a day</div><div class="wk">'+wk+'</div>'+P.map(function(p,i){var s=new Date(p.s+"T00:00"),e=new Date(p.e+"T23:59"),k=Math.ceil((s-t)/864e5),st=t<s?(k==1?"starts tomorrow":"starts in "+k+" days"):t>e?"window ended":"in progress",dy=Math.round((e-s)/864e5),pc=Math.round(cnt(i)/p.t.length*100);return '<div class="ph2" style="--pc:'+p.c+'" data-go="'+i+'"><h3>'+p.n+'</h3><small>'+p.dt+' · '+dy+' days · ~'+dy*5+' hrs · '+st+' · '+pc+'%</small><div class="pb"><i style="width:'+pc+'%"></i></div><div class="out">Deliverable: '+p.out+'</div>'+p.t.map(function(x,j){return '<div class="tr'+(S["p"+i+"_"+j]?' done':'')+'"><span class="d">'+x[0]+'</span><span>'+x[1]+'</span></div>'}).join("")+'</div>'}).join("")+'</div>'}
@@ -296,11 +352,13 @@ var MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 function dd_(n){var b=META.start.split("-");return new Date(+b[0],b[1]-1,+b[2]+n)}
 function off(d){var b=META.start.split("-");return Math.round((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(+b[0],b[1]-1,+b[2]))/864e5)}
 function fmtR(a,b){var A=dd_(a),B=dd_(b),m=MO[A.getMonth()]+" "+A.getDate();if(a==b)return m;return B.getMonth()==A.getMonth()?m+"–"+B.getDate():m+"–"+MO[B.getMonth()]+" "+B.getDate()}
-function sched(){var T=off(today()),t={},ph=[],c=0,adj=S.adj||{},dd=S.dd||{};
-function one(id,L,s){var e=s+L-1,dn=dd[id];if(S[id]){if(dn!=null)e=Math.max(e,dn)}else e=Math.max(e,T);t[id]={s:s,e:e,late:!S[id]&&e>s+L-1};return e+1}
-P.forEach(function(p,i){c=Math.max(0,c+(adj[i]||0));var s0=c;p.t.forEach(function(_,j){c=one("p"+i+"_"+j,PL[i][j],c)});ph[i]={s:s0,e:c-1}});
-var c2=PAR?PAR.startDay:0;D.forEach(function(_,i){c2=one("d"+i,DL[i],c2)});
-return{t:t,ph:ph,tot:c}}
+function sched(){var T=off(today()),t={},ph=[],c=0,adj=S.adj||{},dd=S.dd||{},mx=0;
+function one(id,L,s0){var dn=dd[id],e,s;
+if(S[id]){e=dn!=null?dn:s0+L-1;s=Math.min(s0,e);t[id]={s:s,e:e,late:false};mx=Math.max(mx,e);return Math.max(s0,e+1)}
+e=Math.max(s0+L-1,T);t[id]={s:s0,e:e,late:e>s0+L-1};mx=Math.max(mx,e);return e+1}
+P.forEach(function(p,i){c=Math.max(0,c+(adj[i]||0));var a=1e9,b=-1;p.t.forEach(function(_,j){var id="p"+i+"_"+j;c=one(id,PL[i][j],c);a=Math.min(a,t[id].s);b=Math.max(b,t[id].e)});ph[i]={s:a,e:b}});
+var tot=mx+1,c2=PAR?PAR.startDay:0;D.forEach(function(_,i){c2=one("d"+i,DL[i],c2)});
+return{t:t,ph:ph,tot:tot}}
 function tdate(id){var x=sched().t[id];return fmtR(x.s,x.e)}
 function pdate(i){var a=sched().ph[i];return fmtR(a.s,a.e)}
 function TOT(){return sched().tot}
@@ -308,7 +366,7 @@ function setd(id,v){S[id]=v;S.dd=S.dd||{};if(v)S.dd[id]=off(today());else delete
 function refd(){[].forEach.call(document.querySelectorAll("[data-id]"),function(i){var l=i.closest("label"),e=l&&l.querySelector("em,.d");if(e)e.textContent=tdate(i.dataset.id)})}
 function tl2(){var sc=sched(),T=off(today()),wk="",nw=Math.ceil(sc.tot/7);
 for(var w=0;w<nw;w++){var mid=w*7+3,pi=0;P.forEach(function(p,i){if(mid>=sc.ph[i].s)pi=i});var d0=dd_(w*7);wk+='<div class="'+((T>=w*7&&T<w*7+7)?'now':'')+'" style="background:'+P[pi].c+'">W'+(w+1)+'<br>'+MO[d0.getMonth()]+' '+d0.getDate()+'</div>'}
-return '<div class="sheet"><h2>Timeline</h2><div class="sub">'+dayTxt()+' · about '+META.hrs+' hrs a day · dates move on their own when a task runs late</div><div class="wk">'+wk+'</div>'+P.map(function(p,i){var a=sc.ph[i],orig=PL.slice(0,i).reduce(function(s,x){return s+x.reduce(function(m,n){return m+n},0)},0),sh=a.s-orig,dy=a.e-a.s+1,pc=Math.round(cnt(i)/p.t.length*100),st=T<a.s?"starts in "+(a.s-T)+(a.s-T==1?" day":" days"):T>a.e?"window ended":"in progress",ad=(S.adj&&S.adj[i])||0;
+return '<div class="sheet"><h2>Timeline</h2><div class="sub">'+dayTxt()+' · about '+META.hrs+' hrs a day · dates move on their own: late tasks push the rest back, early ones pull it forward</div><div class="wk">'+wk+'</div>'+P.map(function(p,i){var a=sc.ph[i],orig=PL.slice(0,i).reduce(function(s,x){return s+x.reduce(function(m,n){return m+n},0)},0),sh=a.s-orig,dy=a.e-a.s+1,pc=Math.round(cnt(i)/p.t.length*100),st=T<a.s?"starts in "+(a.s-T)+(a.s-T==1?" day":" days"):T>a.e?"window ended":"in progress",ad=(S.adj&&S.adj[i])||0;
 return '<div class="ph2" style="--pc:'+p.c+'" data-go="'+i+'"><h3>'+p.n+'</h3><small>'+pdate(i)+' · '+dy+' days · ~'+Math.round(dy*META.hrs)+' hrs · '+st+' · '+pc+'%'+(sh?' · shifted '+(sh>0?'+':'')+sh+'d':'')+'</small><div class="pb"><i style="width:'+pc+'%"></i></div><div class="out">Deliverable: '+p.out+'</div>'+p.t.map(function(x,j){var id="p"+i+"_"+j,k=sc.t[id];return '<div class="tr'+(S[id]?' done':'')+(k.late?' late':'')+'"><span class="d">'+tdate(id)+'</span><span>'+x[1]+(k.late?' <b class="ov">overdue</b>':'')+'</span></div>'}).join("")+'<div class="adj"><button data-adj="'+i+'|-1">− 1 day</button><button data-adj="'+i+'|1">+ 1 day</button>'+(ad?'<button data-adj="'+i+'|r">Reset ('+(ad>0?'+':'')+ad+'d)</button>':'')+'</div></div>'}).join("")+'</div>'}
 var META={name:"Noumaan",title:"Backend Journey",tagline:"Finish the Next.js essentials, then Node, Express and MongoDB, then ship a full-stack project. One page, every date.",start:"2026-10-20",hrs:5.5},PAR={tag:"DSA",name:"DSA in JavaScript",intro:"45–60 min every evening from Nov 1. Patterns over volume.",startDay:12,details:[{label:"Block",text:"Evening, 45–60 min, JavaScript"},{label:"Rule",text:"Understand the pattern, then solve 2–3 easy to medium problems. Do not grind."}]},RP=[6],BT=84,CUR=null,DEF=null,dm="",dme=false;
 function fld(d){return MO[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
@@ -346,20 +404,23 @@ if(J.length)h+='<div class="pol">'+J.map(function(x,i){return '<div class="cut '
 return h+'</div>'}
 function dt(){return '<div class="sheet"><h2>Data</h2><div class="sub">Paste the JSON your AI generated, then press Apply. This replaces the plan and clears progress, pins and notebook pages.</div><textarea id="dta" rows="14" spellcheck="false">'+esc(JSON.stringify(CUR,null,2))+'</textarea><div class="dmsg'+(dme?' err':'')+'" id="dmsg">'+esc(dm)+'</div><div class="bar"><button class="btn" data-apply>Apply data</button><button class="btn gh" data-copy>Copy</button><label class="btn gh" style="cursor:pointer">Load .json file<input type="file" id="dfl" accept=".json,.txt,application/json" hidden></label><button class="btn gh" data-rdef>Reset to demo data</button></div></div>'}
 function setm(t,err){var m=$("#dmsg");m.textContent=t;m.className="dmsg"+(err?" err":"")}
-function fresh_(){S.pos={};S.cn=[];S.nbn={};S.pages=[];S.fn={};bp=0;rs=0}
+function fresh_(){S.pos={};S.pos2={};S.pos3={};S.cn=[];S.nbn={};S.pages=[];S.fn={};bp=0;rs=0}
 function applyD(){var v=$("#dta").value.trim().replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/,"");
 try{var d=norm(JSON.parse(v));S={th:S.th,data:d};fresh_();sv();CUR=d;build(d);paint();board();hero();dm="Applied: "+P.length+" phases, "+ids().length+" tasks.";dme=false;draw()}
 catch(e){setm(e instanceof SyntaxError?"That is not valid JSON: "+e.message:e.message,true)}}
 function resetD(){S={th:S.th};fresh_();sv();CUR=DEF;build(DEF);paint();board();hero();dm="Back to the demo data.";dme=false;draw()}
 function copyD(){var a=$("#dta");a.select();try{navigator.clipboard.writeText(a.value).then(function(){setm("Copied.")},function(){setm("Select the text and copy it manually.",true)})}catch(e){setm("Select the text and copy it manually.",true)}}
-var LAY=null,PH_CAP=508;
+var LAY=null,PH_CAP=508,PWv=460,PHv=560,MOB=false,PK="pos",flp=false,GP="",DP="",rt=null;
+function size(){var W=innerWidth,H=innerHeight,mob=W<=560;MOB=mob;var bw=Math.min(W*.96,940)-(mob?24:32),ch=mob?280:(W<900?262:225);
+PWv=mob?bw:bw/2;PHv=mob?Math.floor((H-ch)/2):Math.floor(H-ch);PHv=Math.max(mob?170:240,Math.min(PHv,560));
+document.documentElement.style.setProperty("--ph",PHv+"px")}
 function cs(){var ly=lay();return ly[Math.min(bp,ly.length-1)].s}
 function firstOf(i){var ly=lay();for(var k=0;k<ly.length;k++)if(ly[k].s.i===i)return ly[k].f;return 0}
-function pw(){var b=Math.min(innerWidth*.96,940)-20;return innerWidth<=720?b:b/2}
+function pw(){return PWv}
 function mh(a,side){var m=document.createElement("div");m.className="pg "+(side=="L"?"l":"r");m.style.cssText="position:absolute;left:-9999px;top:0;visibility:hidden;height:auto;overflow:visible;width:"+pw()+"px";m.innerHTML=a.map(function(h){return '<div style="display:flow-root">'+h+'</div>'}).join("");document.body.appendChild(m);var r=[].map.call(m.children,function(c){return c.getBoundingClientRect().height});document.body.removeChild(m);return r}
 function pag(hs,c0,c1){var pg=[[]],h=0,c=c0;hs.forEach(function(x,i){var p=pg[pg.length-1];if(p.length&&(p.length>=8||h+x>c)){p=[];pg.push(p);h=0;c=c1}p.push(i);h+=x});return pg}
 function hdr(s,k,n){var p=P[s.i],g=p.n.split("· ")[1],tag='<span class="b-ph">Phase '+s.i+(n>1?' · '+(k+1)+'/'+n:'')+'</span>',c='<div class="cnt">'+cnt(s.i)+' / '+p.t.length+' done</div>';
-return k==0?tag+'<div class="b-h">'+g+'</div><span class="b-d">'+pdate(s.i)+'</span><div class="b-t">'+p.goal+'</div><div class="b-s">'+p.tip+'</div>'+c:tag+'<div class="b-sh">'+g+'</div>'+c}
+return k==0?tag+'<div class="b-h">'+g+'</div><span class="b-d">'+pdate(s.i)+'</span>'+(PHv<360?'':'<div class="b-t">'+p.goal+'</div><div class="b-s">'+p.tip+'</div>')+c:tag+'<div class="b-sh">'+g+'</div>'+c}
 function fit(bl,side,hf){var m=document.createElement("div");m.className="pg "+(side=="L"?"l":"r");m.style.cssText="position:absolute;left:-9999px;top:0;visibility:hidden;width:"+pw()+"px";document.body.appendChild(m);
 var pages=[[]],box=function(){return m.getBoundingClientRect().bottom},full=function(){var k=m.lastElementChild;return k&&k.getBoundingClientRect().bottom>box()-32};
 m.innerHTML=hf?hf(0):"";
@@ -369,28 +430,104 @@ document.body.removeChild(m);return pages}
 function lay(){if(LAY)return LAY;var out=[];
 sps().forEach(function(s){var u=S.nbn[s.k]||{},p=s.i!=null?P[s.i]:null,f0=out.length,
 rb=(p?p.t.map(function(t,j){return chk("p"+s.i+"_"+j,tdate("p"+s.i+"_"+j),t[1])}):[]).concat((u.R||[]).map(function(b,i){return blk(b,"R",i)})),
-lb=(u.L||[]).map(function(b,i){return blk(b,"L",i)}),
+lb=(p&&PHv<360?['<div class="b-t">'+p.goal+'</div>','<div class="b-s">'+p.tip+'</div>']:[]).concat((u.L||[]).map(function(b,i){return blk(b,"L",i)})),
 
 rp=fit(rb,"R",null),lp=fit(lb,"L",p?function(k){return hdr(s,k,k?2:1)}:null),n=Math.max(rp.length,lp.length);
 for(var k=0;k<n;k++)out.push({s:s,f:f0,rn:rp.length,ln:lp.length,Lh:(p?hdr(s,k,n):"")+(lp[k]||[]).map(function(i){return lb[i]}).join(""),Rh:(rp[k]||[]).map(function(i){return rb[i]}).join("")})});
 LAY=out;return out}
 function nbk(){var ly=lay();if(bp>=ly.length)bp=ly.length-1;if(bp<0)bp=0;var g=ly[bp],s=g.s;
 function o(v,t,c){return '<option value="'+v+'"'+(c==v?' selected':'')+'>'+t+'</option>'}
-return '<div class="book"><div class="pg l">'+g.Lh+'</div><div class="pg r" id="rp">'+g.Rh+'</div></div><div class="nv"><button data-f="-1">◀</button>Page '+(bp+1)+' of '+ly.length+'<button data-f="1">▶</button></div><div class="sheet bar" style="margin-top:12px"><select id="as">'+o("L","Left page",as)+o("R","Right page",as)+'</select><select id="ak">'+o("h","Heading",ak)+o("sh","Subheading",ak)+o("d","Date",ak)+o("ph","Phase tag",ak)+o("t","Text",ak)+o("c","Checkbox",ak)+o("b","Bullet",ak)+o("s","Sticky note",ak)+'</select><input id="ai" placeholder="Write something…" maxlength="160"><button class="btn" data-add>Add</button><button class="btn gh" data-np>+ New page</button>'+(s.u?'<button class="btn gh" data-dp>Delete page</button>':'')+'</div>'}
-addEventListener("resize",function(){LAY=null;if(cur=="nb")draw()});
+return '<div class="book"><div class="pg l">'+g.Lh+'</div><div class="pg r" id="rp">'+g.Rh+'</div></div><div class="nv"><button data-f="-1">◀</button>Page '+(bp+1)+' of '+ly.length+'<button data-f="1">▶</button></div><div class="sheet bar" style="margin-top:12px"><select id="as">'+o("L",MOB?"Top page":"Left page",as)+o("R",MOB?"Bottom page":"Right page",as)+'</select><select id="ak">'+o("h","Heading",ak)+o("sh","Subheading",ak)+o("d","Date",ak)+o("ph","Phase tag",ak)+o("t","Text",ak)+o("c","Checkbox",ak)+o("b","Bullet",ak)+o("s","Sticky note",ak)+'</select><input id="ai" placeholder="Write something…" maxlength="160"><button class="btn" data-add>Add</button><button class="btn gh" data-np>+ New page</button>'+(s.u?'<button class="btn gh" data-dp>Delete page</button>':'')+'</div>'}
+addEventListener("resize",function(){size();LAY=null;if(cur=="nb"&&!flp)draw();clearTimeout(rt);rt=setTimeout(function(){if(!dg)board()},120)});
 (function(){function go(){LAY=null;if(cur=="nb")draw()}if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('500 22px Caveat'),document.fonts.load('700 36px Caveat'),document.fonts.load('400 12px "Special Elite"')]).then(go,go);document.fonts.ready.then(go)}})();
-var V={nb:nbk,tl:tl2,fs:files,wb:wb2,rs:rsh,an:an,dt:dt};
+var GPH=`Hello Claude! I use a planner web app called Learning Board:
+https://github.com/aakhmakhkout/Learning-Board
+It loads a learning plan from a JSON data file. Please create that file for me.
+
+ABOUT ME
+- Goal: [e.g. become job-ready as a MERN stack developer]
+- What I'm learning: [MERN stack / DevOps / Python / ...]
+- What I'm following: [roadmap link / YouTube video or playlist link / syllabus text]
+- Where I am now: [what I already know or have finished]
+- Start date: [YYYY-MM-DD]
+- Time: [number] weeks, [number] hours per day
+- Name for the board: [first name]
+- Skip or focus on: [optional]`;
+var DPH=`Hello Claude! I use a planner web app called Learning Board:
+https://github.com/aakhmakhkout/Learning-Board
+It loads a learning plan from a JSON data file. Please create that file for me.
+
+ABOUT ME
+- Goal: become job-ready for full-stack roles. I am a fresher frontend developer moving into backend.
+- What I'm learning: finish the essentials of Next.js, then Node.js + Express.js + MongoDB, then build a full-stack capstone.
+- What I'm following: (1) a Next.js course with a 48-topic syllabus, (2) this YouTube lecture for the backend: https://youtu.be/0IciwnJ6PJI ("Complete Backend One Shot | Beginners to Advanced | Learn Node.js, Express, MongoDB from Scratch"). If you cannot read the video's chapters, tell me and I will paste them.
+- Where I am now: React, JavaScript, Next.js, Tailwind CSS, Redux Toolkit, Git. I finished Next.js topics 1 to 25. The remaining topics are:
+  26 Error Handling with error.js (Excellent) | 27 Recovering from Errors (Good to Have) | 28 Nested Route Error Handling (Good to Have) | 29 Client-side Exceptions (Good to Have) | 30 Global Error Handling (Good to Have) | 31 CSS in Next.js (Good to Have) | 32 CSS Modules (Good to Have) | 33 SCSS (Extra Knowledge) | 34 Tailwind CSS v4 Setup (Not Negotiable) | 35 Tailwind CSS v4 in Existing Projects (Excellent) | 36 next/image Image Optimization (Not Negotiable) | 37 Preparing App for Deployment (Excellent) | 38 Environment Variables (Excellent) | 39 Custom Domain Setup (Good to Know) | 40 Middleware (Good to Have) | 41 Rewrites using NextResponse (Good to Have) | 42 Edge Runtime (Extra Knowledge) | 43 Internationalization (Extra Knowledge) | 44 ESLint Deep Dive (Excellent) | 45 ESLint as Formatter (Good to Have) | 46 Prettier Setup (Excellent) | 47 Lint-Staged (Extra Knowledge) | 48 Husky Pre-Commit Hooks (Extra Knowledge)
+- Start date: 2026-10-20
+- Time: about 12 weeks, 5.5 hours per day (morning, afternoon and evening)
+- Name for the board: Noumaan
+- Skip or focus on: keep only the Next.js topics that matter and park CSS Modules, SCSS, i18n, Edge runtime, Middleware, Rewrites, Husky and Lint-Staged. Auth, security and deployment are not covered well by the video, so use official docs and my own projects for those.
+- Pacing: each Next.js video is about 18 to 20 minutes plus practice, so one day holds 1 long video or 2 short ones. Give long topics more days and bundle short topics together. Mark which topics you treated as long or short in the task title.
+- Extras I want: a parallel DSA track in JavaScript (patterns first, easy to medium) that starts 12 days after the start date; three projects (a Struvia construction-tracker API, a Job Tracker API with auth deployed on Render, and a Next.js + Express + MongoDB capstone); a final phase for tests, linting, resume updates and 10+ applications.`;
+var GPB=`HOW TO WORK
+1. If you can open links, read the repo's README and data.example.json first. If you can't, use the format below.
+2. Analyse the roadmap / video / syllabus I gave. If you can't open it, say so and ask me to paste the chapter list or syllabus. Never invent chapters.
+3. Split the material into 4 to 8 phases, in learning order. Give each phase 3 to 6 tasks.
+4. A task is a short title naming the concrete topics, plus "days" (a whole number, at least 1). Be realistic for my hours per day.
+5. The total of all days must fit my time window with about 10% buffer. Cut or merge low-priority topics rather than overrunning. Put "(optional)" in the title of nice-to-haves.
+6. For each phase add: goal (one sentence), deliverable (something concrete I will have built or finished), tip (one specific warning), and resources (names that match a "topic" in the top-level resources list).
+7. Add a "parallel" track only if it helps (for example DSA or daily practice), otherwise set it to null. "startDay" is how many days after the start date it begins.
+8. Add 2 to 3 projects, 6 to 9 short notes, and 5 to 8 resource topics with 2 to 3 links each. Use only official or well-known free links you are sure exist. If unsure, leave the link out.
+9. Reply with ONE JSON code block that is valid JSON (no comments, no trailing commas). After it, add at most 3 short lines listing the assumptions you made.
+
+FORMAT
+{
+  "meta": { "name": "Asha", "title": "Learn Python", "tagline": "One sentence about the plan.", "startDate": "2026-11-02", "hoursPerDay": 3 },
+  "phases": [
+    {
+      "name": "Python basics",
+      "color": "#d9432a",
+      "goal": "One sentence.",
+      "deliverable": "Something concrete.",
+      "tip": "One warning.",
+      "resources": ["Python docs"],
+      "tasks": [ { "title": "Syntax, types, loops", "days": 3 } ]
+    }
+  ],
+  "parallel": {
+    "tag": "DSA", "name": "Practice track", "intro": "One sentence.", "startDay": 10,
+    "resources": [], "details": [ { "label": "Block", "text": "Evening, 45 min" } ],
+    "items": [ { "title": "Arrays and strings", "days": 7 } ]
+  },
+  "projects": [ { "title": "Project name", "text": "One sentence." } ],
+  "resources": [ { "topic": "Python docs", "links": [ { "title": "Tutorial", "url": "https://docs.python.org/3/tutorial/" } ] } ],
+  "notes": [ { "title": "Daily rhythm", "text": "Short tip." } ]
+}`;
+GP=GPH+"\n\n"+GPB;DP=DPH+"\n\n"+GPB;
+function gd(){return '<div class="sheet"><h2>How to use</h2><div class="sub">Build your own learning board in five steps.</div><ol class="gs"><li><b>Copy a prompt</b> below: the template, or the demo prompt that shows a filled-in example.</li><li><b>Paste it into an AI chatbot</b> and fill the [brackets]: your goal, roadmap or video link, start date, weeks and hours per day.</li><li><b>Check the reply</b> is one JSON block. If the AI cannot open your link, paste the syllabus or chapter list into the chat.</li><li><b>Copy the JSON</b>, open <b>Data</b>, paste it and press <b>Apply data</b>.</li><li><b>Work through it.</b> Tick tasks as you finish them. Dates move on their own: late tasks push the rest back and early ones pull it forward.</li></ol><div class="sub">Applying data replaces the plan and clears progress, pins and notebook pages. Use <b>Copy</b> in Data to keep a copy of the current plan.</div><div class="gr"><b>Prompt template</b><button class="btn" data-cp="gpa">Copy prompt</button></div><textarea id="gpa" class="gp" rows="9" readonly>'+esc(GP)+'</textarea><div class="gr"><b>Demo prompt: the plan on this board</b><button class="btn" data-cp="dpa">Copy prompt</button></div><textarea id="dpa" class="gp" rows="9" readonly>'+esc(DP)+'</textarea><div class="bar"><button class="btn gh" data-open="dt">Open Data</button></div></div>'}
+function copyP(b){var ta=$("#"+b.dataset.cp),t=b.textContent;ta.select();var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent=t},1500)},no=function(){b.textContent="Select and copy";setTimeout(function(){b.textContent=t},2000)};try{navigator.clipboard.writeText(ta.value).then(ok,no)}catch(e){no()}}
+var V={nb:nbk,tl:tl2,fs:files,wb:wb2,rs:rsh,an:an,dt:dt,gd:gd};
 function draw(){var s=$("#pn").scrollTop;$("#pn").innerHTML=V[cur]();$("#pn").scrollTop=s}
 function open(n){cur=n;if(n=="fs")fv="";$("#pn").innerHTML=V[n]();$("#pn").scrollTop=0;$("#ov").classList.add("on")}
 function shut(){$("#ov").classList.remove("on");cur="";fv="";board();hero()}
-function flip(d){var n=bp+d;if(n<0||n>=lay().length)return;$("#rp").classList.add("fl");setTimeout(function(){bp=n;$("#pn").innerHTML=V.nb();var q=$("#rp");q.classList.add("fl2");setTimeout(function(){q.classList.remove("fl2")},360)},300)}
+function flip(d){if(flp)return;var ly=lay(),n=bp+d,bk=$(".book");if(!bk)return;
+var cu=ly[bp],tg=ly[n],fw=d>0,pk=!tg,v=MOB,pl=bk.querySelector(".pg.l"),pr=bk.querySelector(".pg.r");flp=true;
+if(fw)pr.innerHTML=pk?"":tg.Rh;else pl.innerHTML=pk?"":tg.Lh;
+var lf=document.createElement("div"),ct=document.createElement("div"),cl=(v?"v ":"h ")+(fw?"fwd":"bwd");
+lf.className="leaf "+cl;ct.className="cast "+cl;
+lf.innerHTML='<div class="face f pg '+(fw?'r':'l')+'">'+(fw?cu.Rh:cu.Lh)+'</div><div class="face b pg '+(fw?'l':'r')+'">'+(pk?"":(fw?tg.Lh:tg.Rh))+'</div>';
+bk.appendChild(ct);bk.appendChild(lf);lf.getBoundingClientRect();
+var ang=v?(fw?180:-180):(fw?-180:180),fin=function(){if(!pk)bp=n;flp=false;$("#pn").innerHTML=nbk()};
+if(pk){ang=ang/7;lf.style.transitionDuration=".38s"}
+lf.style.transform=(v?"rotateX(":"rotateY(")+ang+"deg)";ct.classList.add("go");
+if(pk){setTimeout(function(){lf.style.transform="none"},400);setTimeout(fin,820)}else setTimeout(fin,790)}
 function fmt(){return new Date().toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short",year:"numeric"})}
 function add(){var s=cs(),v=$("#ai").value.trim();as=$("#as").value;ak=$("#ak").value;if(!v&&ak=="d")v=fmt();if(!v)return;var u=S.nbn[s.k]=S.nbn[s.k]||{L:[],R:[]};(u[as]=u[as]||[]).push({k:ak,x:v,d:false});sv();var g0=lay().filter(function(x){return x.s.k==s.k})[0];bp=g0.f+((as=="R"?g0.rn:g0.ln)-1);draw();$("#ai").focus()}
 document.addEventListener("click",function(e){var t=e.target,q=function(s){return t.closest(s)},o=q("[data-open]"),f=q("[data-f]"),g=q("[data-go]"),de=q("[data-db]"),dl=q("[data-del]"),c=q("[data-c]"),fc=q("[data-fc]");
 if(t.id=="th"){var d=document.documentElement,dk=d.dataset.theme?d.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;d.dataset.theme=dk?"light":"dark";S.th=d.dataset.theme;sv();return}
 if(q("[data-adj]")){var ad=q("[data-adj]").dataset.adj.split("|"),ai=+ad[0];S.adj=S.adj||{};S.adj[ai]=ad[1]=="r"?0:(S.adj[ai]||0)+(+ad[1]);sv();draw();hero()}else if(de){e.preventDefault();var a=de.dataset.db.split("|"),s=cs();S.nbn[s.k][a[0]].splice(+a[1],1);sv();draw()}
-else if(dl){S.cn=S.cn.filter(function(n){return n.id!=dl.dataset.del});delete S.pos["c"+dl.dataset.del];sv();board()}
-else if(q("[data-apply]"))applyD();else if(q("[data-rdef]"))resetD();else if(q("[data-copy]"))copyD();else if(q("[data-add]"))add();
+else if(dl){S.cn=S.cn.filter(function(n){return n.id!=dl.dataset.del});["pos","pos2","pos3"].forEach(function(k){if(S[k])delete S[k]["c"+dl.dataset.del]});sv();board()}
+else if(q("[data-apply]"))applyD();else if(q("[data-rdef]"))resetD();else if(q("[data-copy]"))copyD();else if(q("[data-cp]"))copyP(q("[data-cp]"));else if(q("[data-add]"))add();
 else if(q("[data-np]")){var id=Date.now();S.pages.push({id:id});S.nbn["u"+id]={L:[{k:"ph",x:"New page"},{k:"h",x:"Untitled"},{k:"d",x:fmt()}],R:[]};sv();bp=lay().length-1;draw()}
 else if(q("[data-dp]")){var s2=cs();S.pages=S.pages.filter(function(p){return p.id!=s2.u});delete S.nbn[s2.k];bp=Math.max(0,bp-1);sv();draw()}
 else if(q("[data-save]")){var a1=$("#nt").value.trim(),b1=$("#nxx").value.trim();if(a1||b1){S.cn.push({id:Date.now(),c:nc,t:a1||"Note",x:b1});sv();shut()}}
@@ -405,12 +542,23 @@ if(t.id=="dfl"&&t.files[0]){var fr=new FileReader();fr.onload=function(){$("#dta
 document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target.id=="ai"){add();return}var n=e.target.tagName;if(n=="INPUT"||n=="TEXTAREA"||n=="SELECT")return;if(e.key=="Escape")shut();if(cur=="nb"&&e.key=="ArrowRight")flip(1);if(cur=="nb"&&e.key=="ArrowLeft")flip(-1)});
 document.addEventListener("input",function(e){var t=e.target;if(t.dataset.fn){S.fn[t.dataset.fn]=t.value;sv()}});
 var ck=$("#cork");
-ck.addEventListener("pointerdown",function(e){var n=e.target.closest(".note");if(!n||e.target.closest(".nx"))return;var b=n.getBoundingClientRect();dg={n:n,ox:e.clientX-b.left,oy:e.clientY-b.top};n.setPointerCapture(e.pointerId);n.classList.add("drag");n.style.zIndex=++z;e.preventDefault()});
-ck.addEventListener("pointermove",function(e){if(!dg)return;var r=ck.getBoundingClientRect(),x=(e.clientX-dg.ox-r.left)/r.width*100,y=(e.clientY-dg.oy-r.top)/r.height*100;dg.n.style.left=Math.max(0,Math.min(80,x))+"%";dg.n.style.top=Math.max(0,Math.min(84,y))+"%"});
-ck.addEventListener("pointerup",function(){if(!dg)return;var n=dg.n;n.classList.remove("drag");S.pos[n.dataset.i]=[parseFloat(n.style.left),parseFloat(n.style.top)];sv();dg=null});
+var hold=null;
+function dstart(st){hold=null;dg=st;try{st.n.setPointerCapture(st.id)}catch(e){}st.n.classList.add("drag");st.n.style.zIndex=++z}
+function dend(){if(hold){clearTimeout(hold.timer);hold=null}if(!dg)return;var n=dg.n;n.classList.remove("drag");S[PK][n.dataset.i]=[parseFloat(n.style.left),parseFloat(n.style.top)];sv();dg=null}
+ck.addEventListener("pointerdown",function(e){var n=e.target.closest(".note");if(!n||e.target.closest(".nx"))return;var b=n.getBoundingClientRect(),st={n:n,id:e.pointerId,x:e.clientX,y:e.clientY,ox:e.clientX-b.left,oy:e.clientY-b.top};
+if(e.pointerType=="mouse"){e.preventDefault();dstart(st)}else{hold=st;st.timer=setTimeout(function(){if(hold===st){dstart(st);if(navigator.vibrate)navigator.vibrate(12)}},500)}});
+ck.addEventListener("pointermove",function(e){if(hold&&hold.id==e.pointerId&&Math.hypot(e.clientX-hold.x,e.clientY-hold.y)>8){clearTimeout(hold.timer);hold=null}
+if(!dg||dg.id!=e.pointerId)return;var r=ck.getBoundingClientRect(),x=(e.clientX-dg.ox-r.left)/r.width*100,y=(e.clientY-dg.oy-r.top)/r.height*100;dg.n.style.left=Math.max(0,Math.min(80,x))+"%";dg.n.style.top=Math.max(0,Math.min(84,y))+"%"});
+ck.addEventListener("pointerup",dend);
+ck.addEventListener("pointercancel",function(){if(hold){clearTimeout(hold.timer);hold=null}if(dg)dend()});
+ck.addEventListener("touchmove",function(e){if(dg&&e.cancelable)e.preventDefault()},{passive:false});
+ck.addEventListener("contextmenu",function(e){if(hold||dg)e.preventDefault()});
+document.addEventListener("click",function(e){var b=$("#bg"),m=$("#mn");if(!b)return;
+if(e.target.closest("#bg")){var o=m.classList.toggle("open");b.classList.toggle("open",o);b.setAttribute("aria-expanded",o?"true":"false")}
+else if(m.classList.contains("open")&&(e.target.closest("#mn button")||!e.target.closest("#mn"))){m.classList.remove("open");b.classList.remove("open");b.setAttribute("aria-expanded","false")}});
 var DEFJSON={"meta":{"name":"Noumaan","title":"Backend Journey","tagline":"Finish the Next.js essentials, then Node, Express and MongoDB, then ship a full-stack project. One page, every date.","startDate":"2026-10-20","hoursPerDay":5.5},"phases":[{"name":"Next.js essentials only","color":"#d9432a","goal":"Finish the topics that matter, at a pace that leaves room for practice. 25 of 48 done is enough to build with.","deliverable":"Next.js app deployed on Vercel with env vars","tip":"Pace: 1 long video or 2 short ones a day, practice included. Parked for later: CSS Modules, SCSS, i18n, Edge runtime, Middleware, Rewrites, Husky, Lint-Staged.","resources":["Next.js"],"tasks":[{"title":"26 error.js (long)","days":1},{"title":"27 Recovering from errors, 28 Nested route errors (2 short)","days":1},{"title":"29 Client-side exceptions, 30 Global error handling (2 short)","days":1},{"title":"34 Tailwind CSS v4 setup (long)","days":1},{"title":"35 Tailwind v4 in existing projects, 38 Environment variables (2 short)","days":1},{"title":"36 next/image optimization (long)","days":1},{"title":"37 Preparing the app for deployment (long)","days":1},{"title":"Deploy to Vercel with env vars, then close the Next.js tab","days":1}]},{"name":"Node + Express core","color":"#0f5a43","goal":"Understand how a server works, not just copy routes.","deliverable":"Notes API running locally","tip":"Watch in chunks, pause, then code it again from a blank file. If a topic runs long, take the extra day.","resources":["Node + HTTP","Express"],"tasks":[{"title":"HTTP, status codes, REST, JSON, Postman (several short topics)","days":2},{"title":"Node runtime, modules, npm, fs, path (short topics)","days":2},{"title":"Async JS: callbacks, promises, async/await, event loop (long, tricky)","days":3},{"title":"Express basics: server, routing, req/res, params, query","days":2},{"title":"Body parsing and middleware (long)","days":2},{"title":"express.Router, MVC folders, dotenv, nodemon (short topics)","days":1},{"title":"Mini project: Notes API, in memory then JSON file. No tutorial for this one","days":3}]},{"name":"MongoDB + Mongoose","color":"#ef8a2f","goal":"Model data properly and build a real CRUD API.","deliverable":"Struvia API with your Redux frontend connected","tip":"Reusing Struvia gives you a real frontend to test against.","resources":["MongoDB"],"tasks":[{"title":"MongoDB concepts, Atlas free cluster, Compass, CRUD in the shell","days":2},{"title":"Mongoose: connect, schemas, models (long)","days":2},{"title":"CRUD through Express + Mongoose (long)","days":3},{"title":"Validation: Mongoose rules + Zod (short)","days":1},{"title":"Relations: refs and populate (long)","days":2},{"title":"Indexes, pagination, filtering, sorting (short topics)","days":1},{"title":"PROJECT 1: backend for your Struvia tracker. Connect your Redux frontend to it","days":4}]},{"name":"Auth + production habits","color":"#5b6b46","goal":"The part most tutorials skip and interviewers ask about.","deliverable":"Job Tracker API live on Render + Atlas","tip":"Never store plain passwords, never commit .env, never trust req.body.","resources":["Auth + security","Deploy + tests"],"tasks":[{"title":"bcrypt, register and login (long)","days":3},{"title":"JWT and httpOnly cookies (long)","days":3},{"title":"Auth middleware, protected routes, role-based access","days":2},{"title":"Central error handler, async wrapper, status codes, logging basics","days":2},{"title":"helmet, cors, rate limiting, sanitizing (short topics)","days":1},{"title":"File upload: multer + Cloudinary","days":2},{"title":"PROJECT 2: Job Tracker API with auth","days":6},{"title":"Deploy Job Tracker to Render + Atlas","days":2}]},{"name":"Full-stack capstone","color":"#2f62c9","goal":"One polished Next.js + Express + MongoDB app, live and documented.","deliverable":"Capstone live, with README, Postman collection, demo","tip":"Ship something small and finished before adding features.","resources":["Deploy + tests","Next.js"],"tasks":[{"title":"Connect Next.js to your API: CORS, cookies, protected pages","days":3},{"title":"Capstone plan: schema, routes, wireframes","days":1},{"title":"PROJECT 3 backend: Resume Builder v2 or an Edu-Devora backend","days":5},{"title":"PROJECT 3 frontend integration. Real auth, real data","days":5},{"title":"Deploy: Vercel + Render + Atlas. Fix production bugs","days":2},{"title":"README with screenshots, API docs, Postman collection, 2-min demo","days":3}]},{"name":"Polish + apply","color":"#7a4e2d","goal":"Turn the work into interviews.","deliverable":"Tests added, repos cleaned, 10+ applications sent","tip":"Optional: Docker basics, Redis caching.","resources":["Deploy + tests"],"tasks":[{"title":"Basic tests: Jest + Supertest on auth and one CRUD route","days":2},{"title":"ESLint + Prettier on all repos (from your parked list)","days":1},{"title":"Update resume, LinkedIn, pinned GitHub repos with the 3 backend projects","days":2},{"title":"Apply daily, 10+ targeted applications. Keep DSA going","days":4}]}],"parallel":{"tag":"DSA","name":"DSA in JavaScript","intro":"45–60 min every evening from Nov 1. Patterns over volume.","startDay":12,"resources":["DSA"],"details":[{"label":"Block","text":"Evening, 45–60 min, JavaScript"},{"label":"Rule","text":"Understand the pattern, then solve 2–3 easy to medium problems. Do not grind."}],"items":[{"title":"Arrays, strings, hashmaps (frequency count)","days":7},{"title":"Two pointers, sliding window, prefix sums","days":14},{"title":"Stack, queue, binary search","days":14},{"title":"Recursion, linked list, basic trees (DFS/BFS)","days":14},{"title":"Revisit weak topics, 2 timed mocks a week","days":23}]},"projects":[{"title":"Project 1 · Struvia API","text":"Projects, tasks, status, filters. Mongoose + Zod, wired to your Redux frontend."},{"title":"Project 2 · Job Tracker API","text":"Auth, protected routes, applications, status. Live on Render."},{"title":"Project 3 · Capstone","text":"Next.js + Express + Mongo. Real auth, docs, demo video."}],"resources":[{"topic":"Next.js","links":[{"title":"Next.js Learn course","url":"https://nextjs.org/learn"},{"title":"Error handling docs","url":"https://nextjs.org/docs/app/getting-started/error-handling"},{"title":"Images docs","url":"https://nextjs.org/docs/app/getting-started/images"}]},{"topic":"Node + HTTP","links":[{"title":"Node.js official intro","url":"https://nodejs.org/en/learn"},{"title":"MDN: HTTP overview","url":"https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"},{"title":"javascript.info: async","url":"https://javascript.info/async"}]},{"topic":"Express","links":[{"title":"Express routing guide","url":"https://expressjs.com/en/guide/routing.html"},{"title":"Postman (API testing)","url":"https://www.postman.com/"}]},{"topic":"MongoDB","links":[{"title":"MongoDB University","url":"https://learn.mongodb.com/"},{"title":"Mongoose docs","url":"https://mongoosejs.com/docs/guide.html"},{"title":"Zod validation","url":"https://zod.dev/"}]},{"topic":"Auth + security","links":[{"title":"JWT intro","url":"https://jwt.io/introduction"},{"title":"OWASP password storage","url":"https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"},{"title":"helmet","url":"https://www.npmjs.com/package/helmet"}]},{"topic":"Deploy + tests","links":[{"title":"Render: Express deploy","url":"https://render.com/docs/deploy-node-express-app"},{"title":"MongoDB Atlas start","url":"https://www.mongodb.com/docs/atlas/getting-started/"},{"title":"Supertest","url":"https://github.com/ladjs/supertest"}]},{"topic":"DSA","links":[{"title":"NeetCode roadmap","url":"https://neetcode.io/roadmap"},{"title":"LeetCode problems","url":"https://leetcode.com/problemset/"}]}],"notes":[{"title":"Daily rhythm","text":"Morning 2h learn. Afternoon 2h build. Evening 1h DSA. Last hour: notes + revise."},{"title":"Pacing","text":"1 long video or 2 short ones a day, practice included. Long topics get more days."},{"title":"Video verdict","text":"Good for fundamentals. Auth, security and deployment need docs + your own projects."},{"title":"No tutorial hopping","text":"One video, one docs set per topic. Finish a section, then build."},{"title":"DSA: yes, lightly","text":"Helps fresher screening. JavaScript, 45–60 min/day, easy to medium."},{"title":"Next.js rule","text":"Finish Phase 0 first. What is left is parked, not failed."},{"title":"Git habit","text":"Commit daily. Your GitHub graph is part of the resume."},{"title":"Sunday review","text":"Tick progress. List 3 things you did not get. Fix those first."},{"title":"Cut rule","text":"Phase over by 3 days? Cut scope, never push the next phase."},{"title":"Buffer","text":"Sunday evening is free. Catch up, do not start new topics."}]};
 function migrate(){if(S.data||S.dv==2)return;S.dv=2;["dd","adj","fn"].forEach(function(k){delete S[k]});Object.keys(S).forEach(function(k){if(/^[pd]\d+(_\d+)?$/.test(k))delete S[k]});S.fn={};sv()}
-DEF=norm(DEFJSON);CUR=DEF;try{if(S.data)CUR=norm(S.data)}catch(e){CUR=DEF}migrate();build(CUR);paint();board();hero();
+DEF=norm(DEFJSON);CUR=DEF;try{if(S.data)CUR=norm(S.data)}catch(e){CUR=DEF}migrate();size();build(CUR);paint();board();hero();
 
 var dip=null;
 addEventListener("beforeinstallprompt",function(e){e.preventDefault();dip=e;var b=document.getElementById("inst");if(b)b.hidden=false});
