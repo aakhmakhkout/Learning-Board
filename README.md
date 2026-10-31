@@ -2,7 +2,7 @@
 
 A single-file planner for any learning roadmap. Pin notes on a cutting-mat board, tick tasks in a handwritten notebook, track dates on a timeline, and keep every topic as a file you can open and close. Load your own plan from one JSON file.
 
-No build step, no dependencies, no account. Progress is saved in your browser's `localStorage`.
+No build step, no dependencies, no account. Your data is saved in the browser, and optionally in a folder you choose on your computer.
 
 ## Features
 
@@ -11,6 +11,9 @@ No build step, no dependencies, no account. Progress is saved in your browser's 
 - **Timeline:** week strip, per-phase dates, hours, deliverables and progress.
 - **Files:** every task as a file icon, split into open and closed. Open one for details, reading links and your own notes, then close it.
 - **Self-adjusting dates:** a task that is not ticked by its end date keeps today as its end date, and everything after it moves back. Tick a task early and everything after it moves up, so no day is left empty. Each phase also has +1 / −1 day buttons.
+- **Notes:** a separate, minimal notes section for anything that is not part of the plan. Notes save as you type.
+- **Save to a folder:** choose a folder once and the app writes `learning-board.json` and a `custom-notes/` folder (one `.md` file per note, named after its title) by itself, with no save button.
+- **Sticky colours:** pick a colour for sticky notes in the notebook, and click a sticky to change it later.
 - **Data:** paste a JSON file to replace the whole plan (see below).
 - **Mobile and tablet layout:** a burger menu, a notebook that stacks top and bottom on phones and turns pages like a real book (with the next or previous page showing underneath), press-and-hold (half a second) to drag notes on touch screens, and pages that resize to the window.
 - **Guide:** the **How to use** button in the app has the steps, the prompt template and a filled-in demo prompt with copy buttons.
@@ -30,6 +33,15 @@ After the first visit everything (the app, fonts and icons) is cached, so it ope
 Opening `index.html` straight from your disk still works as a normal page, but browsers only allow installing and offline caching over HTTPS (or `localhost`).
 
 Your plan and progress live in the browser profile where you use the app. Clearing site data for that site deletes them, and a different browser or device starts empty.
+
+## Save to a folder
+
+Open **Storage** in the top bar and press **Choose folder**. From then on every change is written to that folder automatically:
+
+- `learning-board.json`: your plan, progress, notebook pages, pins and notes.
+- `custom-notes/`: one plain-text file per note, named after its title. If you edit one of these files in another editor, the app picks up the change the next time it connects.
+
+This uses the File System Access API, so it works in Chrome and Edge on a desktop. In other browsers the data stays in the browser only. After the browser restarts it may ask for permission again: press **Reconnect** in the top bar. If the folder and the browser both hold different data when you pick a folder, the app asks which one to keep.
 
 ## Use your own plan
 
