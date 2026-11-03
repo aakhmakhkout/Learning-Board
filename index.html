@@ -129,13 +129,14 @@ body{overflow-x:hidden}
 .nf{display:flex;gap:14px;align-items:center;color:var(--mut);font:400 12px var(--tw);padding-top:10px;border-top:1px solid var(--line)}.nf .btn{margin-left:auto}
 .nempty,.ne{color:var(--mut);padding:30px 10px;text-align:center}
 .nbk{display:none;margin-bottom:12px}
-@media(max-width:560px){.nw{grid-template-columns:1fr;height:min(80vh,640px)}.nw.ed .ns{display:none}.nw:not(.ed) .ne2{display:none}.nbk{display:block}.ne2{padding:16px 16px 12px}.ntt{font-size:24px}.ntx{font-size:16px}}
+@media(max-width:560px){.nw{grid-template-columns:1fr;height:min(80vh,640px)}.nw.ned .ns{display:none}.nw:not(.ned) .ne2{display:none}.nbk{display:block}.ne2{padding:16px 16px 12px}.ntt{font-size:24px}.ntx{font-size:16px}}
 .gs{margin:0 0 14px;padding-left:20px}.gs li{margin:6px 0}
 .gp{width:100%;font:12px/1.5 var(--tw);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px;resize:vertical}
 .gr{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 6px}.gr b{font:800 16px var(--hd)}
 .pg{flex:1;height:var(--ph,560px);overflow-x:hidden;overflow-y:auto;min-height:0;background:radial-gradient(rgba(38,54,107,.18) 1px,transparent 1.3px) 0 0/20px 20px,#f4efe2;color:var(--nk);padding:24px 28px 32px;position:relative;font:500 22px/1.3 var(--hw)}
 .pg.l{border-radius:3px 0 0 3px;box-shadow:inset -30px 0 26px -22px rgba(0,0,0,.4)}
 .pg.r{border-radius:0 3px 3px 0;box-shadow:inset 30px 0 26px -22px rgba(0,0,0,.4);transform-origin:left center}
+.leaf .face.pg{transform-origin:center center}
 .pg.r.fl{transform:rotateY(-90deg);transition:transform .3s ease-in}
 .pg.r.fl2{animation:unf .35s ease-out}
 @keyframes unf{from{transform:rotateY(90deg)}}
@@ -601,7 +602,7 @@ function ntl(){var q=NT.q.trim().toLowerCase(),a=(S.notes||[]).slice().sort(func
 return a.length?a.map(function(n){return '<button class="nl'+(n.id===NT.id?' on':'')+'" data-nt="'+n.id+'"><b>'+esc(n.t||"Untitled")+'</b><span>'+esc((n.x||"").replace(/\s+/g," ").slice(0,70)||"No text yet")+'</span><small>'+ago(n.u)+'</small></button>'}).join(""):'<div class="ne">'+(q?"No notes match.":"No notes yet. Press New.")+'</div>'}
 function ntp(){var L=S.notes||[];if(NT.id==null&&L.length&&innerWidth>560){NT.id=L.slice().sort(function(x,y){return y.u-x.u})[0].id;NT.ed=true}
 var n=L.filter(function(x){return x.id===NT.id})[0];
-return '<div class="sheet clean"><div class="nw'+(NT.ed&&n?' ed':'')+'"><aside class="ns"><div class="nh"><h2>Notes</h2><button class="btn" data-ntnew>+ New</button></div><input id="nq" class="nq" placeholder="Search notes" value="'+esc(NT.q)+'"><div id="ntl" class="nlist">'+ntl()+'</div></aside><section class="ne2">'+(n?'<div class="nbk"><button class="btn gh" data-ntback>← Notes</button></div><input id="ntt" class="ntt" placeholder="Untitled" value="'+esc(n.t)+'" maxlength="80"><textarea id="ntx" class="ntx" placeholder="Start writing…">'+esc(n.x)+'</textarea><div class="nf"><span id="nwc">'+wc(n.x)+'</span><span>Saved automatically</span><button class="btn gh" data-ntdel>Delete</button></div>':'<div class="nempty">Select a note or create a new one.</div>')+'</section></div></div>'}
+return '<div class="sheet clean"><div class="nw'+(NT.ed&&n?' ned':'')+'"><aside class="ns"><div class="nh"><h2>Notes</h2><button class="btn" data-ntnew>+ New</button></div><input id="nq" class="nq" placeholder="Search notes" value="'+esc(NT.q)+'"><div id="ntl" class="nlist">'+ntl()+'</div></aside><section class="ne2">'+(n?'<div class="nbk"><button class="btn gh" data-ntback>← Notes</button></div><input id="ntt" class="ntt" placeholder="Untitled" value="'+esc(n.t)+'" maxlength="80"><textarea id="ntx" class="ntx" placeholder="Start writing…">'+esc(n.x)+'</textarea><div class="nf"><span id="nwc">'+wc(n.x)+'</span><span>Saved automatically</span><button class="btn gh" data-ntdel>Delete</button></div>':'<div class="nempty">Select a note or create a new one.</div>')+'</section></div></div>'}
 function ntNew(){var n={id:Date.now(),t:"",x:"",u:Date.now()};S.notes.unshift(n);NT.id=n.id;NT.ed=true;sv();draw();var t=$("#ntt");if(t)t.focus()}
 function ntDel(b){if(NT.del!==NT.id){NT.del=NT.id;b.textContent="Click again to delete";setTimeout(function(){NT.del=0;if(b.isConnected)b.textContent="Delete"},3000);return}
 S.notes=S.notes.filter(function(n){return n.id!==NT.id});NT.id=null;NT.del=0;NT.ed=false;sv();draw()}
