@@ -2,9 +2,9 @@
   "meta": {
     "name": "Noumaan",
     "title": "Backend Journey",
-    "tagline": "Finish the Next.js essentials, then Node, Express and MongoDB, then ship a full-stack project. One page, every date.",
+    "tagline": "Finish the Next.js essentials, then follow the Sheryians backend course day by day with the supplementary topics. One page, every date.",
     "startDate": "2026-10-20",
-    "hoursPerDay": 5.5
+    "hoursPerDay": 3.5
   },
   "phases": [
     {
@@ -52,193 +52,779 @@
       ]
     },
     {
-      "name": "Node + Express core",
+      "name": "Part A · Days 1–4: Server, npm, MongoDB",
       "color": "#0f5a43",
-      "goal": "Understand how a server works, not just copy routes.",
-      "deliverable": "Notes API running locally",
-      "tip": "Watch in chunks, pause, then code it again from a blank file. If a topic runs long, take the extra day.",
+      "goal": "Follow the Sheryians video one segment a day.",
+      "deliverable": "Checkpoint Day 4: build a basic Express Notes API with MongoDB CRUD",
+      "tip": "Do not watch more than the day's timestamp range just to get ahead.",
       "resources": [
+        "Sheryians course",
         "Node + HTTP",
-        "Express"
-      ],
-      "tasks": [
-        {
-          "title": "HTTP, status codes, REST, JSON, Postman (several short topics)",
-          "days": 2
-        },
-        {
-          "title": "Node runtime, modules, npm, fs, path (short topics)",
-          "days": 2
-        },
-        {
-          "title": "Async JS: callbacks, promises, async/await, event loop (long, tricky)",
-          "days": 3
-        },
-        {
-          "title": "Express basics: server, routing, req/res, params, query",
-          "days": 2
-        },
-        {
-          "title": "Body parsing and middleware (long)",
-          "days": 2
-        },
-        {
-          "title": "express.Router, MVC folders, dotenv, nodemon (short topics)",
-          "days": 1
-        },
-        {
-          "title": "Mini project: Notes API, in memory then JSON file. No tutorial for this one",
-          "days": 3
-        }
-      ]
-    },
-    {
-      "name": "MongoDB + Mongoose",
-      "color": "#ef8a2f",
-      "goal": "Model data properly and build a real CRUD API.",
-      "deliverable": "Struvia API with your Redux frontend connected",
-      "tip": "Reusing Struvia gives you a real frontend to test against.",
-      "resources": [
         "MongoDB"
       ],
       "tasks": [
         {
-          "title": "MongoDB concepts, Atlas free cluster, Compass, CRUD in the shell",
-          "days": 2
+          "title": "Day 1: Server and Node.js foundations · 00:00:00–00:19:45",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "00:00:00–00:19:45 (about 20 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Course overview and what a server is.",
+                "Node.js installation, setup and introduction."
+              ]
+            },
+            {
+              "label": "Supplement to reach 30–50 min (10–20 min)",
+              "items": [
+                "Node.js vs JavaScript in the browser.",
+                "What the V8 engine and Node.js runtime do.",
+                "Basic client-server request/response flow."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Install/check Node.js and npm.",
+                "Run a JavaScript file with node.",
+                "Draw a simple browser → server → response diagram."
+              ]
+            }
+          ]
         },
         {
-          "title": "Mongoose: connect, schemas, models (long)",
-          "days": 2
+          "title": "Day 2: npm, project setup and REST API introduction · 00:19:45–00:51:02",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "00:19:45–00:51:02 (about 31 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "APIs and REST API fundamentals.",
+                "Creating Notes APIs and testing with Postman."
+              ]
+            },
+            {
+              "label": "Supplement if needed (up to 10–15 min)",
+              "items": [
+                "npm scripts, dependencies and devDependencies.",
+                "HTTP methods: GET, POST, PUT, PATCH and DELETE.",
+                "Request body, route parameters and query parameters."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Create a small Express project if the video has introduced it.",
+                "Test GET and POST requests in Postman.",
+                "Explain the difference between an endpoint and an HTTP method."
+              ]
+            }
+          ]
         },
         {
-          "title": "CRUD through Express + Mongoose (long)",
-          "days": 3
+          "title": "Day 3: MongoDB connection and database basics · 00:51:02–01:20:00",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "00:51:02–01:20:00 (about 29 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "MongoDB Atlas setup and database connection.",
+                "Mongoose schema/model introduction and saving notes."
+              ]
+            },
+            {
+              "label": "Supplement to reach 30–50 min (5–15 min)",
+              "items": [
+                "SQL vs NoSQL.",
+                "Database vs collection vs document.",
+                "What Mongoose does and why it is used with MongoDB."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Connect your own development project to a MongoDB database.",
+                "Identify the database, collection and document in your Notes API."
+              ]
+            }
+          ]
         },
         {
-          "title": "Validation: Mongoose rules + Zod (short)",
-          "days": 1
-        },
-        {
-          "title": "Relations: refs and populate (long)",
-          "days": 2
-        },
-        {
-          "title": "Indexes, pagination, filtering, sorting (short topics)",
-          "days": 1
-        },
-        {
-          "title": "PROJECT 1: backend for your Struvia tracker. Connect your Redux frontend to it",
-          "days": 4
+          "title": "Day 4: Finish the Notes database work · 01:20:00–01:43:39",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "01:20:00–01:43:39 (about 24 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Continue the Notes API database implementation.",
+                "Project overview."
+              ]
+            },
+            {
+              "label": "Supplement to reach 30–50 min (10–20 min)",
+              "items": [
+                "Mongoose CRUD methods: create, find, findById, findByIdAndUpdate, findByIdAndDelete.",
+                "Schema validation and MongoDB ObjectId basics."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Implement create, read, update and delete for notes.",
+                "Test successful requests and invalid IDs."
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "name": "Auth + production habits",
+      "name": "Part A · Days 5–9: Backend project + frontend",
+      "color": "#ef8a2f",
+      "goal": "Learn project structure, secrets and frontend-backend integration.",
+      "deliverable": "Checkpoint Day 9: connect a frontend to your backend and explain the request/response flow",
+      "tip": "Do not copy the project blindly; explain what each part does.",
+      "resources": [
+        "Sheryians course",
+        "Express"
+      ],
+      "tasks": [
+        {
+          "title": "Day 5: Project architecture and backend setup · 01:43:39–02:20:00",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "01:43:39–02:20:00 (about 36 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Project overview and requirements.",
+                "Backend project structure and initial implementation."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Recreate the folder structure yourself.",
+                "Identify the purpose of each file and the flow from route to database.",
+                "Do not copy the project blindly; explain what each part does."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Day 6: Backend project implementation · 02:20:00–03:01:50",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "02:20:00–03:01:50 (about 42 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Continue backend development.",
+                "Connect the backend logic with the database and project requirements."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Rebuild the day's feature without looking at the video.",
+                "Test the relevant API endpoints in Postman.",
+                "Note any logic you cannot yet explain."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Day 7: Cloud setup and frontend introduction · 03:01:50–03:30:00",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "03:01:50–03:30:00 (about 28 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Cloud service setup and backend configuration.",
+                "Frontend project introduction."
+              ]
+            },
+            {
+              "label": "Supplement to reach 30–50 min (5–15 min)",
+              "items": [
+                "Environment variables and .env.",
+                "Why secrets and database credentials must not be committed to Git.",
+                "Difference between development and production configuration."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Create a local .env file and load configuration safely.",
+                "Add .env to .gitignore."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Day 8: Frontend project basics · 03:30:00–04:00:53",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "03:30:00–04:00:53 (about 31 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Frontend structure and application flow.",
+                "Understand which screens/features call which backend endpoints."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Trace one user action from the frontend to the API.",
+                "Write down the request method, URL, body and expected response."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Day 9: Frontend-backend integration · 04:00:53–04:34:05",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "04:00:53–04:34:05 (about 33 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Frontend-backend integration.",
+                "Authentication introduction and basic concepts."
+              ]
+            },
+            {
+              "label": "Supplement if needed (5–15 min)",
+              "items": [
+                "CORS and why browsers enforce it.",
+                "Same-origin policy and preflight requests.",
+                "API base URLs and handling failed HTTP responses."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Connect a frontend screen to your own API.",
+                "Test success, loading and error states."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Part A · Days 10–13: Authentication + Spotify project",
       "color": "#5b6b46",
-      "goal": "The part most tutorials skip and interviewers ask about.",
-      "deliverable": "Job Tracker API live on Render + Atlas",
-      "tip": "Never store plain passwords, never commit .env, never trust req.body.",
+      "goal": "Understand token-based auth, JWT and cookies, then apply them in a project.",
+      "deliverable": "Checkpoint Day 11: explain and implement a basic registration/login flow",
+      "tip": "Never put passwords, secrets or sensitive personal data in a JWT payload.",
       "resources": [
-        "Auth + security",
-        "Deploy + tests"
+        "Sheryians course",
+        "Auth + security"
       ],
       "tasks": [
         {
-          "title": "bcrypt, register and login (long)",
-          "days": 3
+          "title": "Day 10: Token-based authentication · 04:34:05–05:14:00",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "04:34:05–05:14:00 (about 40 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Token-based authentication concepts.",
+                "Authentication implementation in code."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Draw the registration/login request flow.",
+                "Explain authentication vs authorization.",
+                "Identify where the password is hashed and where the token is created/verified."
+              ]
+            }
+          ]
         },
         {
-          "title": "JWT and httpOnly cookies (long)",
-          "days": 3
+          "title": "Day 11: JWT, cookies and registration · 05:14:00–05:59:53",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "05:14:00–05:59:53 (about 46 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "JWT authentication.",
+                "Cookies, registration API and why tokens are used."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Implement or reproduce the registration/login flow.",
+                "Inspect a JWT's header, payload and signature using a safe local test.",
+                "Never put passwords, secrets or sensitive personal data in a JWT payload."
+              ]
+            }
+          ]
         },
         {
-          "title": "Auth middleware, protected routes, role-based access",
-          "days": 2
+          "title": "Day 12: Spotify project: first section · 05:59:53–06:40:00",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "05:59:53–06:40:00 (about 40 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Spotify project overview.",
+                "Backend-focused project implementation."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Map the project's routes, controllers, models and database collections.",
+                "Rebuild one feature independently."
+              ]
+            }
+          ]
         },
         {
-          "title": "Central error handler, async wrapper, status codes, logging basics",
-          "days": 2
-        },
-        {
-          "title": "helmet, cors, rate limiting, sanitizing (short topics)",
-          "days": 1
-        },
-        {
-          "title": "File upload: multer + Cloudinary",
-          "days": 2
-        },
-        {
-          "title": "PROJECT 2: Job Tracker API with auth",
-          "days": 6
-        },
-        {
-          "title": "Deploy Job Tracker to Render + Atlas",
-          "days": 2
+          "title": "Day 13: Spotify project: second section · 06:40:00–07:23:34",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "06:40:00–07:23:34 (about 44 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Continue the Spotify backend implementation.",
+                "Understand how the project's backend features fit together."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Test the implemented endpoints.",
+                "Explain the data flow from request to response.",
+                "List any unclear parts for revision."
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "name": "Full-stack capstone",
+      "name": "Part A · Days 14–15: Middleware, testing, validation",
       "color": "#2f62c9",
-      "goal": "One polished Next.js + Express + MongoDB app, live and documented.",
-      "deliverable": "Capstone live, with README, Postman collection, demo",
-      "tip": "Ship something small and finished before adding features.",
+      "goal": "Learn middleware, then test and validate your API.",
+      "deliverable": "Checkpoint Day 15: add input validation and write basic API tests",
+      "tip": "Day 15's video end is not marked. If it runs past 50 min, split it with the +1 day button.",
       "resources": [
+        "Sheryians course",
         "Deploy + tests",
-        "Next.js"
+        "Express"
       ],
       "tasks": [
         {
-          "title": "Connect Next.js to your API: CORS, cookies, protected pages",
-          "days": 3
+          "title": "Day 14: Express middleware · 07:23:34–08:03:44",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "07:23:34–08:03:44 (about 40 min)"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Middleware in Express.js.",
+                "Middleware chaining and request processing."
+              ]
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Write a simple logging middleware.",
+                "Write a middleware that checks whether a required header exists.",
+                "Understand req, res and next()."
+              ]
+            }
+          ]
         },
         {
-          "title": "Capstone plan: schema, routes, wireframes",
-          "days": 1
-        },
-        {
-          "title": "PROJECT 3 backend: Resume Builder v2 or an Edu-Devora backend",
-          "days": 5
-        },
-        {
-          "title": "PROJECT 3 frontend integration. Real auth, real data",
-          "days": 5
-        },
-        {
-          "title": "Deploy: Vercel + Render + Atlas. Fix production bugs",
-          "days": 2
-        },
-        {
-          "title": "README with screenshots, API docs, Postman collection, 2-min demo",
-          "days": 3
+          "title": "Day 15: Testing and input validation · 08:03:44–end",
+          "days": 1,
+          "details": [
+            {
+              "label": "Video",
+              "text": "08:03:44–end of video"
+            },
+            {
+              "label": "Topics",
+              "items": [
+                "Jest and Supertest.",
+                "Express Validator and API validation."
+              ]
+            },
+            {
+              "label": "Supplement",
+              "items": [
+                "Unit tests vs integration tests.",
+                "Assertions and test cases.",
+                "Testing successful and failed API requests.",
+                "Validating untrusted user input."
+              ],
+              "text": "Use the remaining lesson time, if needed, to understand:"
+            },
+            {
+              "label": "Practice",
+              "items": [
+                "Write tests for at least one GET endpoint and one POST endpoint.",
+                "Test missing, invalid and valid input."
+              ]
+            },
+            {
+              "label": "Note",
+              "text": "The supplied chapter list does not include the exact video end timestamp. Watch from 08:03:44 to the end, keeping the total lesson session within 30–50 minutes. If the remaining video itself exceeds 50 minutes, split it across two days."
+            }
+          ]
         }
       ]
     },
     {
-      "name": "Polish + apply",
+      "name": "Part B · Days 16–20: Async, files, errors, data",
       "color": "#7a4e2d",
-      "goal": "Turn the work into interviews.",
-      "deliverable": "Tests added, repos cleaned, 10+ applications sent",
-      "tip": "Optional: Docker basics, Redis caching.",
+      "goal": "Strengthen gaps a single crash course cannot cover in depth.",
+      "deliverable": "Checkpoint Day 20: model related MongoDB data and query it",
+      "tip": "Keep lessons to 30–50 min, then practise separately.",
       "resources": [
+        "Node + HTTP",
+        "MongoDB",
+        "Express"
+      ],
+      "tasks": [
+        {
+          "title": "Day 16: Asynchronous JavaScript and the Node.js event loop",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Callbacks, Promises and async/await revision.",
+                "Event loop, call stack, microtasks and non-blocking I/O."
+              ]
+            },
+            {
+              "label": "Why it matters",
+              "text": "Database calls, file operations and network requests are asynchronous in Node.js."
+            },
+            {
+              "label": "Practice",
+              "text": "Predict the output order of short examples using synchronous code, Promises and setTimeout."
+            }
+          ]
+        },
+        {
+          "title": "Day 17: Node.js modules, files and streams",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "CommonJS vs ES Modules.",
+                "fs and path modules.",
+                "Buffers and streams: what they are and when to use them."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Read and write a local file using fs; compare reading a whole file with using a stream."
+            }
+          ]
+        },
+        {
+          "title": "Day 18: Express error handling and application structure",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Centralized error-handling middleware.",
+                "next(error), HTTP error responses and avoiding duplicated try/catch logic.",
+                "Routes, controllers and services: separation of responsibilities."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Refactor one API route into route, controller and service files."
+            }
+          ]
+        },
+        {
+          "title": "Day 19: MongoDB queries and aggregation",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Filtering, sorting, projection and pagination.",
+                "Aggregation pipeline basics."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Add search, sorting and pagination to the Notes API."
+            }
+          ]
+        },
+        {
+          "title": "Day 20: MongoDB data modelling and indexes",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Embedding vs referencing documents.",
+                "One-to-one and one-to-many relationships.",
+                "Indexes and why they improve query performance."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Model users and notes; decide which data should be referenced and add an index to a commonly queried field."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Part B · Days 21–22: Auth and API security",
+      "color": "#a23b72",
+      "goal": "Go beyond the tutorial on tokens, cookies and common attacks.",
+      "deliverable": "Checkpoint Day 22: apply essential API security protections",
+      "tip": "Implement only after understanding the security trade-offs.",
+      "resources": [
+        "Auth + security"
+      ],
+      "tasks": [
+        {
+          "title": "Day 21: Authentication security beyond the tutorial",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Access tokens vs refresh tokens.",
+                "Token expiry, refresh and rotation.",
+                "HttpOnly, Secure and SameSite cookie settings.",
+                "Logout and token invalidation approaches."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Draw the login, authenticated request, refresh and logout flows. Implement only after understanding the security trade-offs."
+            }
+          ]
+        },
+        {
+          "title": "Day 22: Backend security essentials",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Rate limiting and brute-force protection.",
+                "NoSQL injection and safe query construction.",
+                "CORS configuration.",
+                "XSS and CSRF: what they are and how they differ.",
+                "Input validation and sanitization."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Add validation and rate limiting to an authentication endpoint in a test project."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Part B · Days 23–25: SQL, PostgreSQL, deployment",
+      "color": "#1d7a8c",
+      "goal": "Learn relational basics, then deploy with production configuration.",
+      "deliverable": "Checkpoint Day 25: deploy an API with production configuration",
+      "tip": "Deploy a small API and verify its endpoints from Postman.",
+      "resources": [
+        "PostgreSQL",
         "Deploy + tests"
       ],
       "tasks": [
         {
-          "title": "Basic tests: Jest + Supertest on auth and one CRUD route",
-          "days": 2
+          "title": "Day 23: SQL fundamentals",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Tables, rows, columns and data types.",
+                "Primary keys and foreign keys.",
+                "SELECT, INSERT, UPDATE and DELETE.",
+                "INNER JOIN and LEFT JOIN."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Write basic SQL queries for users and projects."
+            }
+          ]
         },
         {
-          "title": "ESLint + Prettier on all repos (from your parked list)",
-          "days": 1
+          "title": "Day 24: PostgreSQL and relational database design",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "PostgreSQL setup and connection.",
+                "Relationships and normalization basics.",
+                "Transactions and constraints."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Design users, projects and tasks tables with primary and foreign keys."
+            }
+          ]
         },
         {
-          "title": "Update resume, LinkedIn, pinned GitHub repos with the 3 backend projects",
-          "days": 2
+          "title": "Day 25: Deployment and production fundamentals",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Deploying a Node.js/Express API.",
+                "Production environment variables.",
+                "Logs, graceful shutdown and basic monitoring.",
+                "Difference between local and production configuration."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Deploy a small API and verify its endpoints from Postman."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Part B · Days 26–28: Docker, Redis, CI/CD",
+      "color": "#4a4a4a",
+      "goal": "Understand common production tools and workflows.",
+      "deliverable": "Checkpoint Day 28: understand the purpose of common production tools and workflows",
+      "tip": "Treat these as introductions, not mastery.",
+      "resources": [
+        "Docker",
+        "Redis",
+        "Deploy + tests"
+      ],
+      "tasks": [
+        {
+          "title": "Day 26: Docker and API documentation",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "Docker images, containers and a basic Dockerfile.",
+                "Docker Compose fundamentals.",
+                "Swagger/OpenAPI: documenting endpoints."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Containerize a simple API or document its endpoints with an OpenAPI specification."
+            }
+          ]
         },
         {
-          "title": "Apply daily, 10+ targeted applications. Keep DSA going",
-          "days": 4
+          "title": "Day 27: Redis and caching introduction",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "What caching is and why it is used.",
+                "Redis key-value model.",
+                "TTL and cache invalidation basics."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Sketch a cache-aside flow for a frequently requested API resource."
+            }
+          ]
+        },
+        {
+          "title": "Day 28: CI/CD and system design introduction",
+          "days": 1,
+          "details": [
+            {
+              "label": "Learn (30–50 min)",
+              "items": [
+                "GitHub Actions fundamentals.",
+                "Automated test workflow.",
+                "Load balancing, horizontal scaling and caching concepts."
+              ]
+            },
+            {
+              "label": "Practice",
+              "text": "Create a simple workflow that runs tests on a push. Draw a basic scalable web application architecture."
+            }
+          ]
         }
       ]
     }
@@ -287,7 +873,7 @@
   "projects": [
     {
       "title": "Project 1 · Struvia API",
-      "text": "Projects, tasks, status, filters. Mongoose + Zod, wired to your Redux frontend."
+      "text": "Projects, tasks, status, filters. Mongoose + validation, wired to your Redux frontend."
     },
     {
       "title": "Project 2 · Job Tracker API",
@@ -317,19 +903,24 @@
       ]
     },
     {
+      "topic": "Sheryians course",
+      "links": [
+        {
+          "title": "Sheryians Complete Backend One Shot",
+          "url": "https://youtu.be/0IciwnJ6PJI"
+        }
+      ]
+    },
+    {
       "topic": "Node + HTTP",
       "links": [
         {
-          "title": "Node.js official intro",
+          "title": "Node.js Learn",
           "url": "https://nodejs.org/en/learn"
         },
         {
-          "title": "MDN: HTTP overview",
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
-        },
-        {
-          "title": "javascript.info: async",
-          "url": "https://javascript.info/async"
+          "title": "MDN HTTP documentation",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
         }
       ]
     },
@@ -337,8 +928,8 @@
       "topic": "Express",
       "links": [
         {
-          "title": "Express routing guide",
-          "url": "https://expressjs.com/en/guide/routing.html"
+          "title": "Express.js documentation",
+          "url": "https://expressjs.com/"
         },
         {
           "title": "Postman (API testing)",
@@ -394,6 +985,37 @@
         {
           "title": "Supertest",
           "url": "https://github.com/ladjs/supertest"
+        },
+        {
+          "title": "Jest docs",
+          "url": "https://jestjs.io/docs/getting-started"
+        }
+      ]
+    },
+    {
+      "topic": "PostgreSQL",
+      "links": [
+        {
+          "title": "PostgreSQL Tutorial",
+          "url": "https://www.postgresql.org/docs/current/tutorial.html"
+        }
+      ]
+    },
+    {
+      "topic": "Docker",
+      "links": [
+        {
+          "title": "Docker Get Started",
+          "url": "https://docs.docker.com/get-started/"
+        }
+      ]
+    },
+    {
+      "topic": "Redis",
+      "links": [
+        {
+          "title": "Redis Documentation",
+          "url": "https://redis.io/docs/latest/"
         }
       ]
     },
@@ -413,20 +1035,28 @@
   ],
   "notes": [
     {
-      "title": "Daily rhythm",
-      "text": "Morning 2h learn. Afternoon 2h build. Evening 1h DSA. Last hour: notes + revise."
+      "title": "Daily time",
+      "text": "Lesson 30–50 min. Rebuild 60–90. Exercises 30–45. Debug 30–45. Notes 15–30. About 3–4 hours."
     },
     {
-      "title": "Pacing",
-      "text": "1 long video or 2 short ones a day, practice included. Long topics get more days."
+      "title": "Lesson cap",
+      "text": "Do not watch past the day's range. Finished early? Review that topic or read its docs. Do not start the next day."
     },
     {
-      "title": "Video verdict",
-      "text": "Good for fundamentals. Auth, security and deployment need docs + your own projects."
+      "title": "Need more time?",
+      "text": "Split the topic over another day. Do not rush."
     },
     {
-      "title": "No tutorial hopping",
-      "text": "One video, one docs set per topic. Finish a section, then build."
+      "title": "Checkpoints",
+      "text": "Do not move on because a video ended. Move on when you can do the task independently."
+    },
+    {
+      "title": "Resources",
+      "text": "Extra links are references for specific gaps, not another full course."
+    },
+    {
+      "title": "Timestamps",
+      "text": "Based on the chapter list supplied by you. Segment boundaries and supplement times are approximate."
     },
     {
       "title": "DSA: yes, lightly",
@@ -443,10 +1073,6 @@
     {
       "title": "Sunday review",
       "text": "Tick progress. List 3 things you did not get. Fix those first."
-    },
-    {
-      "title": "Cut rule",
-      "text": "Phase over by 3 days? Cut scope, never push the next phase."
     },
     {
       "title": "Buffer",

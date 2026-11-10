@@ -11,7 +11,7 @@ No build step, no dependencies, no account. Your data is saved in the browser, a
 - **Timeline:** week strip, per-phase dates, hours, deliverables and progress.
 - **Files:** every task as a file icon, split into open and closed. Open one for details, reading links and your own notes, then close it.
 - **Self-adjusting dates:** a task that is not ticked by its end date keeps today as its end date, and everything after it moves back. Tick a task early and everything after it moves up, so no day is left empty. Each phase also has +1 / −1 day buttons.
-- **Notes:** a separate, minimal notes section for anything that is not part of the plan. Notes save as you type.
+- **Notes:** a separate notes section for anything outside the plan. You write normally and see the styling live (no Markdown symbols): headings, lists, checklists, quotes, links, and text colours. Code is detected and put in code blocks automatically. Also tags (`#tag`), `[[note links]]` with backlinks, pinning, templates (daily log, concept, bug, weekly review), and search. Notes save as you type, and a **Markdown** toggle shows the raw text. Ctrl+click opens a link or tag.
 - **Save to a folder:** choose a folder once and the app writes `learning-board.json` and a `custom-notes/` folder (one `.md` file per note, named after its title) by itself, with no save button.
 - **Sticky colours:** pick a colour for sticky notes in the notebook, and click a sticky to change it later.
 - **Data:** paste a JSON file to replace the whole plan (see below).
@@ -114,7 +114,7 @@ FORMAT
 | `meta.startDate` | `YYYY-MM-DD`. Required. |
 | `meta.hoursPerDay` | A number, used for the hours estimate. |
 | `phases[]` | Required, 1 to 20. Each has `name`, optional `color` (`#rrggbb`), `goal`, `deliverable`, `tip`, `resources` (topic names), and `tasks`. |
-| `phases[].tasks[]` | 1 to 25 per phase. `title`, and `days` (whole number, 1 to 60). Phases run one after another. |
+| `phases[].tasks[]` | 1 to 25 per phase. `title`, and `days` (whole number, 1 to 60). Phases run one after another. Optional `details`: a list of `{ "label", "text" }` or `{ "label", "items": [...] }` rows (video range, topics, supplement, practice) shown when you open the task as a file. |
 | `parallel` | Optional second track that runs beside the phases. `tag`, `name`, `intro`, `startDay`, `resources`, `details[]` (`label`, `text`) and `items[]` (same as tasks). Use `null` to leave it out. |
 | `projects[]` | Up to 8. `title`, `text`. |
 | `resources[]` | Up to 14 topics, each with up to 8 `links` (`title`, `url`). Only `http` and `https` links are kept. |
