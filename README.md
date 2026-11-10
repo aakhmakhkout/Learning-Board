@@ -114,11 +114,11 @@ FORMAT
 | `meta.startDate` | `YYYY-MM-DD`. Required. |
 | `meta.hoursPerDay` | A number, used for the hours estimate. |
 | `phases[]` | Required, 1 to 20. Each has `name`, optional `color` (`#rrggbb`), `goal`, `deliverable`, `tip`, `resources` (topic names), and `tasks`. |
-| `phases[].tasks[]` | 1 to 25 per phase. `title`, and `days` (whole number, 1 to 60). Phases run one after another. Optional `details`: a list of `{ "label", "text" }` or `{ "label", "items": [...] }` rows (video range, topics, supplement, practice) shown when you open the task as a file. |
+| `phases[].tasks[]` | 1 to 300 per phase. `title`, and `days` (whole number, 1 to 60). Phases run one after another. Optional `details`: a list of `{ "label", "text" }` or `{ "label", "items": [...] }` rows (video range, topics, supplement, practice) shown when you open the task as a file. In the notebook, a phase whose tasks have `details` gets one spread per task: the video range on the left page, and one checkbox per topic, supplement and practice item on the right (long lists continue on the next page). Ticking every box completes the task. |
 | `parallel` | Optional second track that runs beside the phases. `tag`, `name`, `intro`, `startDay`, `resources`, `details[]` (`label`, `text`) and `items[]` (same as tasks). Use `null` to leave it out. |
 | `projects[]` | Up to 8. `title`, `text`. |
-| `resources[]` | Up to 14 topics, each with up to 8 `links` (`title`, `url`). Only `http` and `https` links are kept. |
-| `notes[]` | Up to 24 pinboard notes. `title`, `text`. |
+| `resources[]` | Up to 40 topics, each with up to 20 `links` (`title`, `url`). Only `http` and `https` links are kept. |
+| `notes[]` | Up to 60 pinboard notes. `title`, `text`. |
 
 See `data.example.json` for a full working file.
 
