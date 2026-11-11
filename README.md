@@ -12,9 +12,10 @@ No build step, no dependencies, no account. Your data is saved in the browser, a
 - **Files:** every task as a file icon, split into open and closed. Open one for details, reading links and your own notes, then close it.
 - **Self-adjusting dates:** a task that is not ticked by its end date keeps today as its end date, and everything after it moves back. Tick a task early and everything after it moves up, so no day is left empty. Each phase also has +1 / −1 day buttons.
 - **Notes:** a separate notes section for anything outside the plan. You write normally and see the styling live (no Markdown symbols): headings, lists, checklists, quotes, links, and text colours. Code is detected and put in code blocks automatically. Also tags (`#tag`), `[[note links]]` with backlinks, pinning, templates (daily log, concept, bug, weekly review), and search. Notes save as you type, and a **Markdown** toggle shows the raw text. Ctrl+click opens a link or tag.
-- **Save to a folder:** choose a folder once and the app writes `learning-board.json` and a `custom-notes/` folder (one `.md` file per note, named after its title) by itself, with no save button.
+- **Several roadmaps:** keep as many roadmaps as you like (Backend, Frontend, an exam plan). Each has its own plan, progress, pins and notebook pages, and you switch between them in **Roadmaps**. Notes are shared.
+- **Save to a folder:** choose a folder once and the app writes one JSON file per roadmap (named after it), `learning-board.json` and a `custom-notes/` folder (one `.md` file per note, named after its title) by itself, with no save button.
 - **Sticky colours:** pick a colour for sticky notes in the notebook, and click a sticky to change it later.
-- **Data:** paste a JSON file to replace the whole plan (see below).
+- **Data:** paste a JSON plan, name it, and add it as a new roadmap or replace the current one (see below).
 - **Mobile and tablet layout:** a burger menu, a notebook that stacks top and bottom on phones and turns pages like a real book (with the next or previous page showing underneath), press-and-hold (half a second) to drag notes on touch screens, and pages that resize to the window.
 - **Guide:** the **How to use** button in the app has the steps, the prompt template and a filled-in demo prompt with copy buttons.
 - **Light and dark** themes.
@@ -38,7 +39,8 @@ Your plan and progress live in the browser profile where you use the app. Cleari
 
 Open **Storage** in the top bar and press **Choose folder**. From then on every change is written to that folder automatically:
 
-- `learning-board.json`: your plan, progress, notebook pages, pins and notes.
+- `<roadmap name>.json`, one per roadmap (for example `Backend roadmap.json`): its plan, progress, notebook pages and pins. Renaming a roadmap renames its file, and deleting a roadmap removes it.
+- `learning-board.json`: which roadmap is open, the theme and your notes.
 - `custom-notes/`: one plain-text file per note, named after its title. If you edit one of these files in another editor, the app picks up the change the next time it connects.
 
 This uses the File System Access API, so it works in Chrome and Edge on a desktop. In other browsers the data stays in the browser only. After the browser restarts it may ask for permission again: press **Reconnect** in the top bar. If the folder and the browser both hold different data when you pick a folder, the app asks which one to keep.
@@ -47,9 +49,9 @@ This uses the File System Access API, so it works in Chrome and Edge on a deskto
 
 1. Copy the prompt below into an AI assistant and fill in the `[brackets]`.
 2. Copy the JSON it returns.
-3. In the app, open **Data**, paste it, and press **Apply data**. A `.json` file can be loaded with **Load .json file**.
+3. In the app, open **Data**, paste it, type a name (optional) and press **Add as new roadmap**, or **Replace current** to overwrite the roadmap you are on. A `.json` file can be loaded with **Load .json file**, and a roadmap file saved in your folder loads the same way.
 
-Applying data replaces the plan and clears progress, pins and notebook pages, so do it once at the start. **Copy** in the Data panel shows the current plan, which is a good base to edit by hand. **Reset to demo data** brings the example back.
+Replacing a roadmap clears that roadmap's progress, pins and notebook pages; other roadmaps are not touched. **Copy** in the Data panel shows the current plan, which is a good base to edit by hand. The first time the app opens it loads a small example roadmap (Kaneki, Full Stack Journey) so there is something to look at; delete it in **Roadmaps** once you have your own.
 
 ### The prompt
 

@@ -1,6 +1,6 @@
 // Learning Board service worker: caches the app so it opens offline.
 // Bump VERSION when you change files that must be re-downloaded straight away.
-const VERSION = "lb-v10";
+const VERSION = "lb-v11";
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest",
   "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png",
