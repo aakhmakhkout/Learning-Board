@@ -232,7 +232,7 @@ nav .burger{order:2}#mn{order:4}
 .btn{font:500 14px var(--bd);background:var(--ink);color:var(--bg);border:0;border-radius:4px;padding:7px 14px;cursor:pointer}
 .btn.gh{background:none;color:var(--ink);border:1px solid var(--line)}
 .nv{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:12px;font:400 13px var(--tw);color:#f4efe2}
-.nv{flex-wrap:wrap;gap:6px 8px}.nv .pgb{border-color:transparent;padding:2px 8px;min-width:30px}.nv .pgb.on{border-color:#f4efe2;background:rgba(244,239,226,.18)}.nv .pge{opacity:.6}.nv .pgg{display:flex;align-items:center;gap:6px;margin-left:12px}.nv .pgg input{width:58px;background:rgba(255,255,255,.1);border:1px solid #f4efe2;color:#f4efe2;border-radius:4px;padding:2px 6px;font:inherit;text-align:center;-moz-appearance:textfield}.nv .pgg input::-webkit-inner-spin-button{display:none}.nv .pgg .go{border-color:#f4efe2}
+.nv{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 18px}.nv .pgr{display:flex;align-items:center;gap:8px;width:min(100%,440px)}.nv .pgs{flex:1;min-width:0;display:grid;grid-template-columns:repeat(var(--k),minmax(0,1fr));gap:2px}.nv .pgs .pgb,.nv .pgs .pge{width:100%;min-width:0;padding:2px 0;text-align:center;box-sizing:border-box}.nv .pgn{flex:none;width:46px;padding:2px 0;text-align:center}.nv .pgg{flex:none;margin-left:0}.nv .pgb{border-color:transparent;padding:2px 8px;min-width:30px}.nv .pgb.on{border-color:#f4efe2;background:rgba(244,239,226,.18)}.nv .pge{opacity:.6}.nv .pgg{display:flex;align-items:center;gap:6px;margin-left:12px}.nv .pgg input{width:58px;background:rgba(255,255,255,.1);border:1px solid #f4efe2;color:#f4efe2;border-radius:4px;padding:2px 6px;font:inherit;text-align:center;-moz-appearance:textfield}.nv .pgg input::-webkit-inner-spin-button{display:none}.nv .pgg .go{border-color:#f4efe2}
 .nv button{font:inherit;background:none;border:1px solid #f4efe2;color:#f4efe2;border-radius:4px;padding:2px 14px;cursor:pointer}
 .fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
 .fc{position:relative;text-align:left;font:inherit;color:var(--ink);cursor:pointer;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--pc);border-radius:2px 6px 4px 4px;padding:26px 12px 12px;min-height:116px;display:flex;flex-direction:column;gap:4px;transition:transform .2s,box-shadow .2s,opacity .3s}
@@ -552,10 +552,13 @@ function size(){var W=innerWidth,H=innerHeight,mob=W<=560;MOB=mob;var bw=Math.mi
 PWv=mob?bw:bw/2;PHv=mob?Math.floor((H-ch)/2):Math.floor(H-ch);PHv=Math.max(mob?170:240,Math.min(PHv,560));
 document.documentElement.style.setProperty("--ph",PHv+"px")}
 function refBook(){var ly=lay(),bk=$(".book");if(!bk||flp||cur!=="nb")return;if(bp>=ly.length)bp=ly.length-1;if(bp<0)bp=0;var g=ly[bp],s=g.s;bk.querySelector(".pg.l").innerHTML=g.Lh;bk.querySelector(".pg.r").innerHTML=g.Rh;var nvb=$(".nv");if(nvb)nvb.innerHTML=pgBar();$("#dpw").innerHTML=s.u?'<button class="btn gh" data-dp>Delete page</button>':''}
-function pgBar(t){var n=lay().length,c=(t==null?bp:t)+1,w=MOB?1:2,set={},a,h="",pv=0,i;set[1]=1;set[n]=1;for(i=c-w;i<=c+w;i++)if(i>=1&&i<=n)set[i]=1;
-a=Object.keys(set).map(Number).sort(function(x,y){return x-y});
-a.forEach(function(p){if(pv&&p-pv>1)h+=p-pv==2?'<button class="pgb" data-pg="'+(pv+1)+'">'+(pv+1)+'</button>':'<span class="pge">\u2026</span>';h+='<button class="pgb'+(p==c?" on":"")+'" data-pg="'+p+'">'+p+'</button>';pv=p});
-return'<button data-f="-1" title="Previous page">\u25C0</button>'+h+'<button data-f="1" title="Next page">\u25B6</button><span class="pgg"><label for="pgi">Go to</label><input id="pgi" type="number" min="1" max="'+n+'" placeholder="'+c+'" inputmode="numeric"><button class="pgb go" data-pgo>Go</button><span id="pgc">of '+n+'</span></span>'}
+function pgBar(t){var n=lay().length,c=(t==null?bp:t)+1,k=Math.min(n,MOB?5:7),a=[],i;
+if(n<=k){for(i=1;i<=n;i++)a.push(i)}
+else if(c<=k-3){for(i=1;i<=k-2;i++)a.push(i);a.push(0,n)}
+else if(c>=n-(k-4)){a.push(1,0);for(i=n-(k-3);i<=n;i++)a.push(i)}
+else{var m=k-4,st=c-Math.floor((m-1)/2);a.push(1,0);for(i=0;i<m;i++)a.push(st+i);a.push(0,n)}
+var h=a.map(function(p){return p?'<button class="pgb'+(p==c?" on":"")+'" data-pg="'+p+'">'+p+'</button>':'<span class="pge">\u2026</span>'}).join("");
+return'<div class="pgr"><button class="pgn" data-f="-1" title="Previous page">\u25C0</button><div class="pgs" style="--k:'+k+'">'+h+'</div><button class="pgn" data-f="1" title="Next page">\u25B6</button></div><span class="pgg"><label for="pgi">Go to</label><input id="pgi" type="number" min="1" max="'+n+'" placeholder="'+c+'" inputmode="numeric"><button class="pgb go" data-pgo>Go</button><span id="pgc">of '+n+'</span></span>'}
 function goPg(p){if(flp&&FIN)FIN();var n=lay().length;p=Math.max(1,Math.min(n,Math.round(+p)));if(!isFinite(p)||flp)return;var d=p-1-bp;if(!d)return;if(Math.abs(d)==1)flip(d);else{bp=p-1;refBook()}}
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-pg],[data-pgo]");if(!b||cur!=="nb")return;if(b.dataset.pgo!=null){var v=$("#pgi");if(v&&v.value!=="")goPg(v.value)}else goPg(+b.dataset.pg)});
 document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target&&e.target.id=="pgi"){e.preventDefault();goPg(e.target.value)}});
