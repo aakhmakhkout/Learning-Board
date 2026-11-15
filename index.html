@@ -836,25 +836,26 @@ return o.join("")||ebh("p","")}
 function btxt(b){return b.textContent.replace(/\u200b/g,"")}
 function rgbHex(c){var m=/rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(c||"");if(m)return"#"+[m[1],m[2],m[3]].map(function(v){return("0"+(+v).toString(16)).slice(-2)}).join("");return/^#[0-9a-f]{6}$/i.test(c||"")?c.toLowerCase():""}
 function edWrap(mk,s){var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s);return m[2]?m[1]+mk+m[2]+mk+m[3]:s}
+function edCol(s,col){var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s);return m[2]?m[1]+'<span style="color:'+col+'">'+m[2]+"</span>"+m[3]:s}
 function edInl(n){var s="";[].forEach.call(n.childNodes,function(c){
 if(c.nodeType==3){s+=c.data.replace(/\u200b/g,"").replace(/\u00a0/g," ").replace(/([\\*`])/g,"\\$1");return}
-if(c.nodeType!=1)return;var t=c.tagName,i=edInl(c);
+if(c.nodeType!=1)return;var t=c.tagName,i=edInl(c),p;
 if(t=="BR")return;
-if(t=="CODE"){var q=c.textContent.replace(/\u200b/g,"");s+=q?"`"+q+"`":"";return}
-if(t=="STRONG"||t=="B"){s+=edWrap("**",i);return}
-if(t=="EM"||t=="I"){s+=edWrap("*",i);return}
-if(t=="S"||t=="DEL"||t=="STRIKE"){s+=edWrap("~~",i);return}
-if(t=="A"){if(c.classList.contains("wl")){var w=(c.dataset.ntgo||c.textContent).replace(/\u200b/g,"").trim();s+=w?"[["+w+"]]":"";return}
-var h=c.getAttribute("href")||"";s+=/^https?:\/\//i.test(h)&&i.trim()?"["+i+"]("+h+")":i;return}
 var col=rgbHex(c.style&&c.style.color)||(t=="FONT"?rgbHex(c.getAttribute("color")):"");
-if(col&&i.trim()){var cm=/^(\s*)([\s\S]*?)(\s*)$/.exec(i);s+=cm[1]+'<span style="color:'+col+'">'+cm[2]+'</span>'+cm[3];return}
-s+=i});return s}
+if(t=="CODE"){var q=c.textContent.replace(/\u200b/g,"");p=q?"`"+q+"`":""}
+else if(t=="STRONG"||t=="B")p=edWrap("**",i);
+else if(t=="EM"||t=="I")p=edWrap("*",i);
+else if(t=="S"||t=="DEL"||t=="STRIKE")p=edWrap("~~",i);
+else if(t=="A"){if(c.classList.contains("wl")){var w=(c.dataset.ntgo||c.textContent).replace(/\u200b/g,"").trim();p=w?"[["+w+"]]":""}
+else{var h=c.getAttribute("href")||"";p=/^https?:\/\//i.test(h)&&i.trim()?"["+i+"]("+h+")":i}}
+else p=i;
+s+=(col&&p.trim())?edCol(p,col):p});return s}
 function edSer(ed){var u=[],ch=[].slice.call(ed.children),i,cur=null;
 for(i=0;i<ch.length;i++){var b=ch[i],k=b.dataset.k,d=+b.dataset.d||0,pad=new Array(d+1).join("  "),t;
 if(k=="code"){if(cur&&cur.k=="code"){cur.lines.push(btxt(b))}else{cur={k:"code",lang:b.dataset.lang||"",lines:[btxt(b)]};u.push(cur)}continue}
 cur=null;
 if(k=="hr"){u.push({k:"hr",s:"---"});continue}
-t=edInl(b);
+t=edInl(b);var bcl=rgbHex(b.style&&b.style.color);if(bcl&&t.trim())t=edCol(t,bcl);
 if(/^h[123]$/.test(k)){u.push({k:k,s:new Array(+k[1]+1).join("#")+" "+t});continue}
 if(k=="ul")u.push({k:"li",s:pad+"- "+t});
 else if(k=="ol")u.push({k:"li",s:pad+(b.dataset.n||1)+". "+t});
